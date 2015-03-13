@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function loadXMLDoc()
+{
+var xmlhttp;
+var txt,x,y,z,i;
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+{
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+  {
+    xmlDoc=xmlhttp.responseXML;
+
+    txt="<table><th>Artist</th><th>Album</th><th>Year</th>";
+    x=xmlDoc.getElementsByTagName("ARTIST");
+    y=xmlDoc.getElementsByTagName("TITLE");
+    z=xmlDoc.getElementsByTagName("YEAR");
+    for (i=0;i<x.length;i++)
+    {
+      txt += "<tr><td>" + x[i].childNodes[0].nodeValue + "</td>";
+      txt += "<td>"     + y[i].childNodes[0].nodeValue + "</td>"
+      txt += "<td>"     + z[i].childNodes[0].nodeValue + "</td></tr>";
+    }
+    txt += "</table>";
+    document.getElementById("myDiv").innerHTML=txt;
+  }
+}
+xmlhttp.open("GET","cd_catalog.xml",true);
+xmlhttp.send();
+}
+</script>
+</head>
+
+<body>
+
+<h2>My CD Collection:</h2>
+<div id="myDiv"></div>
+<button type="button" onclick="loadXMLDoc()">Get my CD collection</button>
+
+</body>
+</html>
