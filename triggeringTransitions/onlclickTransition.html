@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>This example uses the HTML DOM to assign an "onclick" event to a p element.</p>
+
+<p id="demo">Click me. (Demo id)</p>
+
+<p id="practice">
+  Click me. (Practice Id)
+</p>
+
+
+
+<script>
+// what is the best way to call the function with onclick this way or jump right in
+document.getElementById("demo").onclick = function() {myFunction()};
+// does not work this way, runs without being clicked
+// document.getElementById("demo").onclick = myFunction();
+
+
+function myFunction() {
+    var elem = document.getElementById("demo");
+    elem.style.background = 'orange';
+    // elem.style.font-size = '30px'; doesnt work below example works
+    elem.style.font = 'italic bold 30px arial, serif';
+    // elem.style.font = '30px'; this doesn't work either
+
+}
+
+// has to be below element that it is handling or it won't work
+document.getElementById("practice").onclick = function() {
+  var elem = document.getElementById("practice");
+  elem.style.background = 'green';
+  elem.style.color = 'white';
+}
+</script>
+
+</body>
+</html>

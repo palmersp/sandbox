@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<style>
+div#box1 {
+  background: #9DCEFF;
+  width: 400px;
+  height: 200px;
+}
+</style>
+<script>
+function changeBG(el,clr){
+  var elem = document.getElementById(el);
+  elem.style.transition = "background 1.0s linear 0s";
+  elem.style.background = clr;
+  elem.style.width = '600px';
+  elem.style.position = 'absolute';
+  elem.style.top = '50px';
+  elem.style.right = '50px';
+  if (clr == '#9DCEFF') {
+    elem.style.width = '400px';
+    // cant set the below code to null, doesn't work
+    elem.style.position = '';
+    elem.style.top = '';
+    elem.style.right = '';
+
+  }
+}
+</script>
+<body>
+<button onclick="changeBG('box1','#F0F')">Magenta</button>
+<button onclick="changeBG('box1','#0C0')">Green</button>
+<button onclick="changeBG('box1','#9DCEFF')">Original</button>
+<div id="box1">Content in box 1 ...</div>
+</body>
+</html>

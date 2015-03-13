@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <style media="screen">
+      img {
+        width: 200px;
+      }
+    </style>
+    <title>Image Swap</title>
+  </head>
+  <body>
+
+    <img src="noun_30410_cc.png" alt="spaceship" />
+    <img src="noun_30410_cc.png" alt="spaceship" />
+    <img src="noun_30410_cc.png" alt="spaceship" />
+    <img src="noun_30410_cc.png" alt="spaceship" />
+    <img src="noun_30410_cc.png" alt="spaceship" />
+    <img src="noun_30410_cc.png" alt="spaceship" />
+
+
+  </body>
+
+  <script charset="utf-8">
+
+    var allImages = document.getElementsByTagName("img");
+    var imageCount = allImages.length;
+   
+    for (var i = 0; i < imageCount; i++) {
+      allImages[i].onclick = function() {
+        if(window.event.toElement.style.backgroundColor == "") {
+          window.event.toElement.style.backgroundColor = "red";
+        }
+        else {
+          window.event.toElement.style.backgroundColor = "";
+        }
+        }
+   
+   }
+
+  // window.onclick = function(){ window.event.toElement.style.backgroundColor = "red";}
+  
+  
+  </script>
+</html>

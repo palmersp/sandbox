@@ -1,0 +1,45 @@
+<script>
+	var array [{image:imgClick();body:bodyClick();div:divClick()}];
+
+	window.onclick = function(){
+    var click = window.event.target.localName;
+		if(click == 'img' && (window.event.toElement.alt == "spaceship")){
+	      array[image];
+	    }
+	    else if(click == 'body'){
+	      array[body];
+	    }
+	    else if(click == 'div'){
+	      array[div];
+	    }
+	}
+
+	function imageClick() {
+	     if (window.event.toElement.style.backgroundColor == "") {
+	      window.event.toElement.style.backgroundColor = "red";
+	    }
+	    else {
+	      window.event.toElement.style.backgroundColor = "";
+	    }
+	  }
+
+	  function divClick() {
+	    if(window.event.toElement.style.backgroundColor == "") {
+	      window.document.body.style.backgroundColor = "red";
+	    }
+	    else{
+	     window.event.toElement.style.backgroundColor = "";
+	    }
+	  }
+
+
+	  function bodyClick() {
+	     if (window.event.toElement.style.backgroundColor == "") {
+	      window.document.toElement.style.backgroundColor = "red";
+	    }
+	    else {
+	      window.event.toElement.style.backgroundColor = "";
+	    }
+	  }
+
+</script>

@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <style media="screen">
+      img {
+        width: 200px;
+      }
+    </style>
+    <title>Image Swap</title>
+  </head>
+  <body>
+
+    <img src="noun_30410_cc.png" alt="spaceship" />
+    <img src="noun_30410_cc.png" alt="spaceship" />
+    <img src="noun_30410_cc.png" alt="spaceship" />
+    <img src="noun_30410_cc.png" alt="spaceship" />
+    <img src="noun_30410_cc.png" alt="spaceship" />
+    <img src="noun_30410_cc.png" alt="spaceship" />
+
+
+  </body>
+
+  <script charset="utf-8">
+
+
+  
+  //have to use an if else otherwise your going to make it so that other elements other than desired can be clicked
+  window.onclick = function(){
+  // why won't it work if toElement == img or "img?"
+    if (window.event.toElement.alt == "spaceship" && (window.event.toElement.style.backgroundColor == "")) {
+      console.log(window.event.toElement.style.backgroundColor == "");
+      window.event.toElement.style.backgroundColor = "red";
+    }
+    else if (window,event.toElement.localName != "body") {
+      window.event.toElement.style.backgroundColor = "";
+    }
+    }
+
+
+// example up above makes it so that you cant run a similiar function
+// they interfere with each other
+// if the top one is an if elseif statement then they work great
+     window.document.body.onclick = function(){
+    if (window.event.toElement.localName == "body" && (window.event.toElement.style.backgroundColor == "")) {
+      console.log("yellow");
+      window.document.body.style.backgroundColor = "red";
+      console.log(window.event);
+    }
+    else if (window.event.toElement.localName != "img") {
+      window.event.toElement.style.backgroundColor = "";
+    }
+    }
+
+
+  </script>
+</html>

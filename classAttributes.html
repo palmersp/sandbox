@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <style media="screen">
+      .text{
+        font-family: Verdana;
+        font-size: 25px;
+      }
+      .background{
+        background: orange;
+        color: white;
+      }
+      .position{
+        position: absolute;
+        top: 100px;
+        left: 500px;
+        /*right: auto;*/
+      }
+      .size {
+        width: 200px;
+        height: 150px;
+      }
+    </style>
+
+    <script charset="utf-8">
+      function classChange() {
+        var id = document.getElementById("div");
+        id.className = " text";
+        id.className += " background";
+        id.className += " position";
+        id.className += " size";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div">
+      Behold this div!
+    </div>
+    <button onclick="classChange()">Change</button>
+  </body>
+</html>

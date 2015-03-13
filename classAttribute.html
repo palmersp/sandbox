@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Class Attribute</title>
+
+    <style media="screen">
+      .newStyle{
+        width: 400px;
+        height: 150px;
+        background-color: salmon;
+        color: white;
+        font-size: 20px;
+      }
+      .updatedClass{
+        background: navy;
+        width: 400px;
+        height: 100px;
+        color: white;
+        font-size: 20px;
+      }
+      .addedClass:before{
+        content: "\2192"
+      }
+    </style>
+
+    <script charset="utf-8">
+      function classAttribute(){
+        document.getElementById("div").className = "newStyle";
+      }
+
+      function getClass() {
+        var x = document.getElementById("div").className;
+        document.getElementById("div").innerHTML = "The class name of this div is: " + x;
+      }
+      function changeClass() {
+        document.getElementById("div").className = "updatedClass";
+        document.getElementById("div").innerHTML = "Class has been changed";
+      }
+      function addClass() {
+        //have to have a space or it will not work
+        document.getElementById("div").className += " addedClass";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div">
+        I will add a class to this div.
+    </div>
+    <button name="button" onclick="classAttribute()">Add Class</button>
+
+    <p>
+    Get the class name
+    </p>
+    <button onclick="getClass()">Get Class Name</button>
+    <p>
+      Overwrite class name
+      <button onclick="changeClass()">Change Class</button>
+    </p>
+    <p>
+      Add another class
+    </p>
+    <button onclick="addClass()">Add Class</button>
+  </body>
+</html>

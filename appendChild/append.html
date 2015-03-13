@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <style media="screen">
+      #div1{
+        background: red;
+      }
+      #div2{
+        background: blue;
+      }
+    </style>
+    <script charset="utf-8">
+      function append(){
+        var node = document.getElementById("div1").lastChild;
+        document.getElementById("div2").appendChild(node);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <p>
+        Paragraph 1
+      </p>
+      <p>
+        Paragraph 2
+      </p>
+      <p>
+        Paragraph 3
+      </p>
+    </div>
+    <div id="div2">
+
+    </div>
+    <button onclick="append()">Append</button>
+  </body>
+</html>

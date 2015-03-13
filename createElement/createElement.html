@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title></title>
+    <style media="screen">
+      div {
+        border: solid red;
+      }
+    </style>
+    <script charset="utf-8">
+
+    // creating an element creates an element node
+      function create(){
+        var btn = document.createElement("BUTTON");
+        document.body.appendChild(btn);
+      }
+      // create a button with text
+      //have to create a text node and append it to the button
+      //a string is required in order for text node to work will fail if no string is present
+      function button() {
+        var btn = document.createElement("BUTTON");
+        var text = document.createTextNode("Click Me");
+        btn.appendChild(text);
+        document.body.appendChild(btn);
+      }
+
+      // create a paragraph with some text
+      function para() {
+        var para = document.createElement("p");
+        var text = document.createTextNode("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+        para.appendChild(text);
+        document.body.appendChild(para);
+      }
+
+      // create a P element with text and append to div
+      function div() {
+        var para = document.createElement("p");
+        var text = document.createTextNode("Paragraph stuck in a div");
+        para.appendChild(text);
+        document.getElementById("testDiv").appendChild(para);
+      }
+
+      // append to div using div tag, does not work this way
+      // function div() {
+      //   var para = document.createElement("p");
+      //   var text = document.createTextNode("Paragraph stuck in a div");
+      //   para.appendChild(text);
+      //   document.div.appendChild(para);
+      // }
+    </script>
+  </head>
+  <body>
+    <button name="button" onclick="create()">Create Button</button>
+    <button onclick="button()">Button with Text</button>
+    <button onclick="para()">Paragraph</button>
+    <button onclick="div()">Append to Div</button>
+    <div id="testDiv">
+      Here is a div
+    </div>
+  </body>
+</html>

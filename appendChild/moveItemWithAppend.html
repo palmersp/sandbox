@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title></title>
+    <script charset="utf-8">
+      function moveItem() {
+        var node = document.getElementById("list").lastChild;
+        document.getElementById("div").appendChild(node);
+        console.log(node);
+
+      }
+    </script>
+  </head>
+  <body>
+    <!-- does not work properly if there are spaces between these -->
+    <!-- wonder if this was an ol and I moved water would the order rearrange? -->
+    <!-- need to move li to another list -->
+    <!-- loop back through when it gets to the end -->
+    <ul id="list">
+      <li>Water</li>
+      <li>Earth</li>
+      <li>Fire</li>
+   </ul>
+
+      <div id="div">
+        Bring me the following:
+      </div>
+
+      <button onclick="moveItem()">Yes sir!</button>
+
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div class="div">
+      Div Class
+    </div>
+    <div class="div">
+      Div Class
+    </div>
+    <div class="div">
+      Div class
+    </div>
+    <p>
+      Click to change the paragraph tags
+    </p>
+    <p>
+      Click to change the paragraph tags
+    </p>
+  </body>
+
+  <script>
+
+
+  // getElementsByClassName returns a NodeList.
+  // You cannot assign an event handler via the onclick property on a NodeList, only a single DOMElement.
+  var elems = document.getElementsByClassName('div');
+  for (var i = 0; i < elems.length; i++) {
+   elems[i].onclick = function(){
+     for(var i = 0; i < elems.length; i++){
+     elems[i].style.background = 'blue';
+     elems[i].innerHTML = 'Worked!';
+     elems[i].style.color = 'white';
+     elems[i].style.font = 'italic bold 30px arial';
+
+   }
+   }
+ }
+
+
+// this example cuts down on global variables
+ for (var i = 0; i < document.getElementsByTagName('p').length; i++) {
+  document.getElementsByTagName('p')[i].onclick = function(){
+    var elems = document.getElementsByTagName('p');
+    for(var i = 0; i < elems.length; i++){
+    elems[i].style.background = 'red';
+    elems[i].innerHTML = 'Worked';
+    elems[i].style.color = 'white';
+    elems[i].style.font = 'italic bold 30px arial';
+
+  }
+  }
+}
+
+
+
+  </script>
+</html>

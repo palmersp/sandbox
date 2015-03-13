@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>This example uses the HTML DOM to assign an "onclick" event to a p element.</p>
+
+<p id="demo">Click me. (Demo id)</p>
+
+<p id="practice">
+  Click me. (Practice Id)
+</p>
+
+
+
+<script>
+
+
+document.getElementById("demo").onclick = function() {myFunction()};
+
+function myFunction() {
+    var elem = document.getElementById("demo");
+    elem.style.background = 'orange';
+    elem.style.font = 'italic bold 30px arial, serif';
+}
+
+document.getElementById("practice").onclick = function() {
+  var elem = document.getElementById("practice");
+  elem.style.background = 'orange';
+  elem.style.font = 'italic bold 30px arial, serif';
+}
+</script>
+
+</body>
+</html>

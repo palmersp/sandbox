@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Tic Tac Toe</title>
+    <style media="screen">
+      div{
+        width: 150px;
+        height: 150px;
+        border: solid black 5px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class=""></div>
+    <div class=""></div>
+    <div class=""></div><br>
+    <div class=""></div>
+    <div class=""></div>
+    <div class=""></div><br>
+    <div class=""></div>
+    <div class=""></div>
+    <div class=""></div><br>
+  </body>
+
+
+  <script charset="utf-8">
+
+  var backgroundClr = "red";
+
+
+    // document.getElementsByTagName("div");
+    document.getElementsByTagName("div")[0].onclick = function() {click(0)};
+    document.getElementsByTagName("div")[1].onclick = function() {click(1)};
+    document.getElementsByTagName("div")[2].onclick = function() {click(2)};
+    document.getElementsByTagName("div")[3].onclick = function() {click(3)};
+    document.getElementsByTagName("div")[4].onclick = function() {click(4)};
+    document.getElementsByTagName("div")[5].onclick = function() {click(5)};
+    document.getElementsByTagName("div")[6].onclick = function() {click(6)};
+    document.getElementsByTagName("div")[7].onclick = function() {click(7)};
+    document.getElementsByTagName("div")[8].onclick = function() {click(8)};
+
+    function click(i) {
+      var element = document.getElementsByTagName("div")[i];
+      
+      if(backgroundClr == "red") {
+      element.style.background = backgroundClr;
+      backgroundClr = "green";
+      }
+      else {
+        element.style.background = backgroundClr;
+        backgroundClr = "red";
+      }
+
+
+    }
+
+
+  </script>
+</html>

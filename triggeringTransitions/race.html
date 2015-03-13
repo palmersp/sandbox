@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title></title>
+    <style media="screen">
+      .race{
+        width: 100px;
+        height: 100px;
+      }
+      #div1{
+        background-color: red;
+      }
+      #div2 {
+        background-color: green;
+      }
+      #div3 {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1" class="race">
+
+    </div>
+    <div id="div2" class="race">
+
+    </div>
+    <div id="div3" class="race">
+
+    </div>
+
+    <button name="button" onclick="race()">Go!</button>
+  </body>
+
+<script charset="utf-8">
+
+  function race() {
+    var elem = document.getElementsByClassName('race');
+    for(var i = 0; i < elem.length; i++ ) {
+      elem[i].style.transition = "width " + Math.floor((Math.random() * 10) + 1) + "s linear " + Math.floor((Math.random() * 5) + 1) + "s";
+      console.log(elem[i].style.transition);
+      elem[i].style.width = "900px";
+    }
+  }
+</script>
+
+</html>

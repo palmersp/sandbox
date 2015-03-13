@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+  
+
+<p>This example uses the addEventListener() method to attach a "click" event to a p element.</p>
+
+<p id="demo">Click me.</p>
+
+<script>
+document.getElementById("demo").addEventListener("click", myFunction);
+
+function myFunction() {
+    document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+    document.getElementById("demo").style.background = "green";
+    document.getElementById("demo").style.color = "white";
+    document.getElementById("demo").style.font = "italic bold 40px verdana";
+}
+</script>
+
+</body>
+</html>

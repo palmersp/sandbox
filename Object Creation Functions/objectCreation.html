@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Object Creation</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+
+	function create()
+        {
+
+//create a new object with a constructor function/method
+			var object = new Object();
+			document.getElementById('div1').innerHTML = object;
+
+//create new object, create a variable name object2 and assign it object1. Both are pointers to the same object
+			var object1 = new Object();
+			var object2 = object1;
+			//now take object1 and assign it a property, then call object2 to check if it has that property
+			object1.property = "green";
+			document.getElementById('div2').innerHTML = "Object1 and object2 share the same property: " + object2.property;
+//take object1 and set it to null, check to see if object2 still references the object
+			object1 = null;
+			document.getElementById('div3').innerHTML = object2;
+
+//create an oject and dereference it by settin it to null
+			var dereferenceObject = new Object();
+			dereferenceObject = null;
+
+			document.getElementById('div4').innerHTML = "Dereferenced object: " + dereferenceObject;
+		
+
+
+	   }
+
+	</script>
+
+	<div id="div1">
+		<button onClick="create();">Click Me</button>
+	</div>
+
+	<div id="div2"></div>
+	<div id="div3"></div>
+	<div id="div4"></div>
+	<div id="div5"></div>
+	<div id="div6"></div>
+	<div id="div7"></div>
+	<div id="div8"></div>
+</body>
+	
+
+</html>
