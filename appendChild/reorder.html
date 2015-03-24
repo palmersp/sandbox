@@ -5,14 +5,12 @@
     <script charset="utf-8">
       function moveItem() {
         var node = window.event.target;
-        //document.getElementById("list").removeChild(node);
         document.getElementById("div").appendChild(node);
         console.log(node);
 
       }
       function moveItemBack(){
         var node = window.event.target;
-        //document.getElementById("div").removeChild(node);
         document.getElementById("list").appendChild(node);
         console.log(node);
       }

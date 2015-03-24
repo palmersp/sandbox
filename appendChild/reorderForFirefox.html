@@ -3,24 +3,26 @@
     <meta charset="utf-8">
     <title></title>
     <script charset="utf-8">
-      function moveItem() {
-        var node = window.event.target;
+      function moveItem(e) {
+        var node = e.target;
         document.getElementById("div").appendChild(node);
         console.log(node);
 
       }
-      function moveItemBack(){
-        var node = window.event.target;
-        document.getElementById("div").insertBefore(node,document.getElementById("div").childNodes[0]);
+      function moveItemBack(e){
+        var node = e.target;
+        document.getElementById("list").appendChild(node);
         console.log(node);
       }
 
-      window.onclick = function(){
-        console.log(window.event);
-          if (window.event.target.parentElement.localName == "ol")
-            moveItemBack();
-          else if (window.event.target.parentElement.localName == "ul")
-            moveItem();
+      window.onclick = function(e){
+        if (!e)
+          e = window.event;
+        console.log(e);
+          if (e.target.parentElement.localName == "ol")
+            moveItemBack(e);
+          else if (e.target.parentElement.localName == "ul")
+            moveItem(e);
 
       }
       function doSomethingElse(){
