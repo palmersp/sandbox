@@ -17,6 +17,7 @@ xmlhttp.onreadystatechange=function()
     x=xmlDoc.getElementsByTagName("ARTIST");
     y=xmlDoc.getElementsByTagName("TITLE");
     z=xmlDoc.getElementsByTagName("YEAR");
+
     for (i=0;i<x.length;i++)
     {
       txt += "<tr><td>" + x[i].childNodes[0].nodeValue + "</td>";

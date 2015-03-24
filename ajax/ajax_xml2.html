@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+function loadXMLDoc()
+{
+var xmlhttp;
+var txt,x,y,z,i;
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+{
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+  {
+    var xmlDoc=xmlhttp.responseXML;
+
+    //txt="<table><th>Artist</th><th>Album</th><th>Year</th>";
+    var xx=xmlDoc.documentElement.getElementsByTagName("CD");
+
+    var table = document.getElementById("myDiv")
+    var row, cell1, cell2, cell3;
+
+    for (i=0;i<xx.length;i++)
+    {
+      row = table.insertRow(1);
+      cell1 = row.insertCell(0);
+      cell2 = row.insertCell(1);
+      cell3 = row.insertCell(2);
+      var x=xmlDoc.getElementsByTagName("ARTIST");
+      var y=xmlDoc.getElementsByTagName("TITLE");
+      var z=xmlDoc.getElementsByTagName("YEAR");
+      cell1.innerHTML = x[i].childNodes[0].nodeValue;
+      cell2.innerHTML = y[i].childNodes[0].nodeValue;
+      cell3.innerHTML = z[i].childNodes[0].nodeValue;
+    }
+    document.getElementById("myDiv").innerHTML=table;
+  }
+}
+xmlhttp.open("GET","cd_catalog.xml",true);
+xmlhttp.send();
+}
+</script>
+</head>
+
+<body>
+
+<h2>My CD Collection:</h2>
+<div>
+  <table id="myDiv"><tr><th>Artist</th><th>Album</th><th>Year</th></tr></table></div>
+<button type="button" onclick="loadXMLDoc()">Get my CD collection</button>
+
+</body>
+</html>
