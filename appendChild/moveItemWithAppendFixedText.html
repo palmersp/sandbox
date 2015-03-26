@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title></title>
+    <script charset="utf-8">
+      function moveItem() {
+        var list = document.getElementById("list");
+        if (list.lastChild.nodeName != "<li>"){
+          list.removeChild(list.lastChild);
+        }
+        document.getElementById("div").appendChild(list.lastChild);
+        console.log(list.lastChild);
+
+
+      }
+    </script>
+  </head>
+  <body>
+    <ul id="list">
+      <li>Water</li>
+      <li>Earth</li>
+      <li>Fire</li>
+   </ul>
+
+      <div id="div">
+        Bring me the following:
+      </div>
+
+      <button onclick="moveItem()">Yes sir!</button>
+
+  </body>
+</html>
