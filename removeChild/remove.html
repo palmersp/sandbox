@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Remove</title>
+    <script charset="utf-8">
+
+    function happyRemoval() {
+      var list = document.getElementById("list");
+      list.removeChild(list.childNodes[0]);
+    }
+    function nastyRemoval() {
+      var list = document.getElementById("list2");
+      list.removeChild(list.childNodes[1]);
+    }
+    </script>
+  </head>
+  <body>
+    <button onclick="happyRemoval()">Remove</button>
+    <ul id="list"><li>Table</li><li>chair</li><li>Sofa</li></ul>
+
+    <button onclick="nastyRemoval()">Remove</button>
+    <ul id="list2"><li>Spoon</li><li>Fork</li><li>Knife</li></ul>
+  </body>
+</html>
