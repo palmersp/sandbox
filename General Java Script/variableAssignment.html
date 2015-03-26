@@ -13,11 +13,13 @@
 
     <button onclick="displayArray()">array</button>
     <button onclick="displaySorted()">sort</button>
+    <button onclick="checkRelationship()">check</button>
 
   </body>
   <footer>
   <script>
     var variables = ["int", "bool", "double", "float", "byte", "short", "long"]
+    var s = variables;
     var l = variables.length;
     var d1 = document.getElementById("div1");
     // var d2 = document.getElementById("div2");
@@ -34,7 +36,7 @@
     }
     //problem: s is a reference to the same location as variables.
     function displaySorted(){
-      var s = variables;
+      // var s = variables;
       // This works within the function or if the script is after the HTML body where the IDs are setup
       //... not setup globally.
       var d2 = document.getElementById("div2");
@@ -45,6 +47,12 @@
         text += s[i] + ", ";
       }
       d2.innerHTML = text;
+    }
+    function checkRelationship(){
+      if (variables == s)
+        alert("TRUE!");
+      else
+        alert("False!");
     }
   </script>
   </footer>
