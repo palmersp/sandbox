@@ -2,10 +2,16 @@
   <head>
 
       <script charset="utf-8">
-        function insert() {
+        function happyInsert() {
           var node = document.getElementById("list").firstChild;
           var list = document.getElementById("div");
           list.insertBefore(node, list.childNodes[0]);
+        }
+
+        function nastyInsert() {
+          var node = document.getElementById("list").firstChild;
+          var list = document.getElementById("div");
+          list.insertBefore(node, list.childNodes[6]);
         }
       </script>
   </head>
@@ -17,9 +23,15 @@
     <!-- loop back through when it gets to the end -->
     <ol id="list"><li>Water</li><li>Earth</li><li>Fire</li></ol>
 
-    <ol id="div"><li>The list will be rearanged here:</li></ol>
+    <ol id="div"><li>The list will be rearanged above:</li></ol>
 
-    <button onclick="insert()">Rearange</button>
+    <button onclick="happyInsert()">Rearange</button>
+    <br><br>
+    <ol id="list"><li>Water</li><li>Earth</li><li>Fire</li></ol>
+
+    <ol id="div"><li>The list will be rearanged above:</li></ol>
+
+    <button onclick="nastyInsert()">Rearange</button>
 
 
   </body>

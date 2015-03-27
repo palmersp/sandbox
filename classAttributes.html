@@ -19,22 +19,46 @@
         width: 200px;
         height: 150px;
       }
+      .background2{
+        background: blue;
+        color: white;
+      }
+      .position2{
+        position: absolute;
+        top: 100px;
+        left: 300px;
+        /*right: auto;*/
+      }
     </style>
 
     <script charset="utf-8">
-      function classChange() {
+      function happyClassChange() {
         var id = document.getElementById("div");
         id.className = " text";
         id.className += " background";
         id.className += " position";
         id.className += " size";
       }
+
+      function nastyClassChange() {
+        var id = document.getElementById("div2");
+        id.className = "text";
+        id.className += "background2";
+        id.className += " position2";
+        id.className += " size";
+      }
     </script>
   </head>
   <body>
     <div id="div">
-      Behold this div!
+      Behold this div! Happy change!
     </div>
-    <button onclick="classChange()">Change</button>
+    <button onclick="happyClassChange()">Change</button>
+
+    <div id="div2">
+      Behold this div! Nasty change!
+    </div>
+    <button onclick="nastyClassChange()">Change</button>
+
   </body>
 </html>
