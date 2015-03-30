@@ -5,14 +5,14 @@
 
   </head>
   <body>
-    <div id="div1">
-    </div>
-    <div id="div2">
+    <div id="div1">div1:</div><br/>
+    <div id="div2">div2:</div><br/>
+    <div id="div3">div3:</div><br/>
 
-    </div>
 
     <button onclick="displayArray()">array</button>
     <button onclick="displaySorted()">sort</button>
+    <button onclick="displayNastyArray()">Nasty</button>
     <button onclick="checkRelationship()">check</button>
 
   </body>
@@ -23,6 +23,7 @@
     var l = variables.length;
     var d1 = document.getElementById("div1");
     // var d2 = document.getElementById("div2");
+    var d3 = document.getElementById("div3");
 
     function displayArray(){
       var i = 0;
@@ -34,6 +35,19 @@
       }
       d1.innerHTML = text2;
     }
+
+    // Nasty path: Null as beginning of counter
+    function displayNastyArray(){
+      var i = null;
+      var text3 = "";
+      console.log(variables);
+      while (i < l){
+        text3 += i + ": " + variables[i] + ", ";
+        i++;
+      }
+      d3.innerHTML = text3;
+    }
+
     //problem: s is a reference to the same location as variables.
     function displaySorted(){
       // var s = variables;

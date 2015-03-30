@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script charset="utf-8">
+    var offsets = new Array();
+    var root= document.getElementById("root");
+    var bar= document.getElementById("bar");
+    var foo= document.getElementById("foo");
+    var elems = root.getElementsByTagName("li");
+    for (var i = 0; i < elems.length; i++) {
+        Drag.init(elems[i], null, 0, 0, null, null);
+        elems[i].onDrag = function(x,y,myElem) {
+            // We're only really interested in the y value
+            y = myElem.offsetTop;
+            recalcOffsets();
+            var pos = whereAmI(myElem);
+            var elems = root.getElementsByTagName("li");
+            if (pos != elems.length-1 && y > offsets[pos + 1]) {
+                root.removeChild(myElem);
+                root.insertBefore(myElem, elems[pos+1]);
+                myElem.style["top"] = "0px";
+            }
+            if (pos != 0 && y < offsets[pos - 1]) {
+                root.removeChild(myElem);
+                root.insertBefore(myElem, elems[pos-1]);
+                myElem.style["top"] = "0px";
+            }
+        };
+        elems[i].onDragEnd = function(x,y,myElem) {
+            myElem.style["top"] = "0px";
+        }
+    }
+    function recalcOffsets () {
+        var elems = root.getElementsByTagName("li");
+        for (var i = 0; i < elems.length; i++) {
+            offsets[i] = elems[i].offsetTop;
+        }
+    }
+    function whereAmI(elem) {
+        var elems = root.getElementsByTagName("li");
+        for (var i = 0; i < elems.length; i++) {
+            if (elems[i] == elem) { return i }
+        }
+    }
+    recalcOffsets();
+    </script>
+  </head>
+  <body>
+    <ol id="list"><li>Water</li><li>Earth</li><li>Fire</li></ol>
+
+    <ul id="root" style="left:20px; top:20px;">
+      <p> drag and drop</p>
+        <li id="foo" style="position:relative; margin:2px; padding:2px; width:142px;" class="draggable">Foo</li>
+        <li id="bar" style="position:relative; margin:2px; padding:2px; width:142px;" class="draggable">Bar</li>
+        <li id="baz" style="position:relative; margin:2px; padding:2px; width:142px;" class="draggable">Baz</li>
+        <li id="quux" style="position:relative; margin:2px; padding:2px; width:142px;" class="draggable">Quux</li>
+    </ul>
+     <script charset="utf-8">
+    // var offsets = new Array();
+    // var root= document.getElementById("root");
+    // var bar= document.getElementById("bar");
+    // var foo= document.getElementById("foo");
+    // var elems = root.getElementsByTagName("li");
+    // for (var i = 0; i < elems.length; i++) {
+    //     Drag.init(elems[i], null, 0, 0, null, null);
+    //     elems[i].onDrag = function(x,y,myElem) {
+    //         // We're only really interested in the y value
+    //         y = myElem.offsetTop;
+    //         recalcOffsets();
+    //         var pos = whereAmI(myElem);
+    //         var elems = root.getElementsByTagName("li");
+    //         if (pos != elems.length-1 && y > offsets[pos + 1]) {
+    //             root.removeChild(myElem);
+    //             root.insertBefore(myElem, elems[pos+1]);
+    //             myElem.style["top"] = "0px";
+    //         }
+    //         if (pos != 0 && y < offsets[pos - 1]) {
+    //             root.removeChild(myElem);
+    //             root.insertBefore(myElem, elems[pos-1]);
+    //             myElem.style["top"] = "0px";
+    //         }
+    //     };
+    //     elems[i].onDragEnd = function(x,y,myElem) {
+    //         myElem.style["top"] = "0px";
+    //     }
+    // }
+    // function recalcOffsets () {
+    //     var elems = root.getElementsByTagName("li");
+    //     for (var i = 0; i < elems.length; i++) {
+    //         offsets[i] = elems[i].offsetTop;
+    //     }
+    // }
+    // function whereAmI(elem) {
+    //     var elems = root.getElementsByTagName("li");
+    //     for (var i = 0; i < elems.length; i++) {
+    //         if (elems[i] == elem) { return i }
+    //     }
+    // }
+    // recalcOffsets();
+     </script>
+  </body>
+</html>
