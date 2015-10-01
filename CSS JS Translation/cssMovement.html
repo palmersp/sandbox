@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <style>
+      #shape{
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(red,blue);
+        border-radius: 50%;
+        position: absolute;
+        animation: anim 6s ease-in-out infinite alternate;
+      }
+      @keyframes anim{
+        0% {transform:rotate(0deg);}
+        100% {transform:rotate(1080deg);}
+        from { top: 200px; left: 0px;}
+        to   { top: 200px; left: 200px;}
+      }
+      #shape2{
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(red,blue);
+        border-radius: 50%;
+        position: absolute;
+        animation: anim2 6s ease-in-out infinite alternate;
+      }
+      @keyframes anim2{
+        0% {transform:rotate(0deg);}
+        100% {transform:rotate(1080deg);}
+        from { top: 200px; left: 300px;}
+        to   { top: 200px; left: 500px;}
+      }
+    </style>
+    <script>
+    </script>
+  </head>
+  <body>
+    <div id="shape">
+    </div>
+    <div id="shape2"></div>
+    <p><br/><br/></br><br/><br/></br><br/><br/></br><br/><br/></br><br/><br/></br><br/><br/></br>content here</p>
+  </body>
+</html>
