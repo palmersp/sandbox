@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>inheritance</title>
+
+    <script type="text/javascript">
+
+    function Animal(legcount) {
+      this.legcount = legcount;
+    }
+    function Dog(legcount, name) {
+      Animal.call(this, legcount);
+      this.name = name;
+    }
+    var retriever = new Dog(4, "Dusty");
+    console.log(retriever.name + " " + retriever.legcount);
+
+    
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

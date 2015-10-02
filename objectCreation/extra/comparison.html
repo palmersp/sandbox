@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Comparison</title>
+    <script type="text/javascript">
+      var soup = {protein: "beef", vegetable: "carrots", herbs: 'thyme'};
+      var beefSoup = soup;
+
+      function Stew(){
+        this.protein = 'beef'
+        this.vegetable = 'carrots'
+        this.herbs = 'thyme'
+      };
+
+      var beefStew = new Stew();
+
+      for (var prop in beefSoup){
+        console.log("beefSoup." + prop + " " + beefSoup[prop])
+      }
+
+      for (var prop in beefStew){
+        console.log("beefStew." + prop + " " + beefStew[prop])
+      }
+
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

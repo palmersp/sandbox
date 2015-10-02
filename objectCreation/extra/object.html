@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object</title>
+    <script type="text/javascript">
+      //two ways to create objects
+      var obj = new Object();
+      var obj2 = {};
+
+      //functions are used as classes
+
+      //namespace
+
+      var MyApp = {};
+
+      //define a class
+      var Person = function() {this.car = "red"};
+      //object: instance of a class
+      var person1 = new Person();
+      var person2 = new Person();
+      console.log(person1.car);
+//another example of defining a class and an instance of it
+      function Car() {
+        this.car = "blue";
+      }
+      var car2 = new Car();
+      console.log(car2.car);
+
+// this example is wrong. whenever a variable is in front of a function, the class is defined by the name of the variable and
+// not the name of the function
+      var toyota = function Color(){
+        this.car = "blue";
+      }
+      // var car3 = new Color();
+      // console.log(car3.car);
+
+      // constructors don't need to be implicitly defined. Every action in the class gets executed at instantiation
+
+      //properties
+
+      //methods
+      var Person = function (firstName) {
+  this.firstName = firstName;
+};
+
+Person.prototype.sayHello = function() {
+  console.log("Hello, I'm " + this.firstName);
+};
+
+var person1 = new Person("Alice");
+var person2 = new Person("Bob");
+
+// call the Person sayHello method.
+person1.sayHello(); // logs "Hello, I'm Alice"
+person2.sayHello(); // logs "Hello, I'm Bob"
+
+//inheritance
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

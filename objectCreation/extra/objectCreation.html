@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object Creation Functions</title>
+    <script type="text/javascript">
+
+    //actual programming to solve problems is
+    // more like art than math; actual math as a
+    // career is more like art than solving math
+    // problems out of the back of the book
+      var obj = new Object();
+
+      //object literal
+      var obj2 = {};
+
+
+//example of inheritance courtesy of Brother Barney
+function Animal(legcount) {
+  this.legcount = legcount;
+}
+function Dog(legcount, name) {
+  Animal.call(this, legcount);
+  this.name = name;
+}
+
+
+var Person = function () {
+  console.log('instance created');
+};
+
+var person1 = new Person();
+var person2 = new Person();
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

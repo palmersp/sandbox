@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object Creation function</title>
+    <script type="text/javascript">
+//object constructor
+      var obj = new Object();
+// object literal
+      var obj2 = {};
+      //(class) object prototype
+      var Person = function (){};
+      //instance of the class
+      var person1  = new Person();
+//Object.create
+      var speaker = {topic: "faith"}
+      var speaker2 = Object.create(speaker);
+      // console.log(speaker2.topic);
+
+
+//Happy Path
+      // object literal
+    var scripture = {
+      book: "John",
+      chapter: 3,
+      verse: 16
+    }
+
+// nasty paths
+    // var badScripture = {
+    //   book: Mormon,
+    //   chapter: 8,
+    //   verse: 47
+    // }
+    // var badScripture2 = {
+    //   book: "Job";
+    //   chapter: 4;
+    //   verse: 10;
+    // }
+
+
+//not the best way to do it
+    // new constructor
+    var scripture2 = new Object();
+    scripture2.book = "1 Nephi",
+    scripture2.chapter = 3,
+    scripture2.verse = 3;
+
+    // object constructor
+    function Scripture3(book, chapter, verse){
+      this.book = book;
+      this.chapter = chapter;
+      this.verse = verse;
+    }
+    var scriptureMastery = new Scripture3("2 Nephi", 2, 25);
+    // console.log(scriptureMastery.book)
+
+    var Scripture4 = function(book, chapter, verse){
+      this.book = book;
+      this.chapter = chapter;
+      this.verse = verse;
+    }
+
+var favScripture = new Scripture4("Ether", 12, 27);
+// console.log(favScripture.book);
+
+// var nastyScripture = new Scripture4(Genesis, 1, 1);
+
+
+
+
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

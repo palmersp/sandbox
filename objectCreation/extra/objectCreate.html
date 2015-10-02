@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object Creation</title>
+    <script type="text/javascript">
+
+    // create two objects one literally and with a constructor
+    var car = {color:"red", brand: "Toyota" };
+    var car2 = new Object();
+    car2 = {color: "green", brand: "ford"};
+
+// add a method
+    car2.status = function() {
+      console.log("Drive");
+    };
+
+// class
+    function Course() {
+      this.teacher = "Brother Barney";
+      this.subject = "CIT 261";
+    };
+
+    var webApps = new Course();
+      webApps.section = "1";
+
+    console.log(webApps.teacher);
+    console.log(webApps.section);
+
+    for (var prop in webApps){
+      console.log( "webApps." + prop + " " + webApps[prop])
+    }
+    for(var prop in car2){
+      console.log("car2." + prop + " " + car2[prop])
+    }
+
+    for (var prop in Math){
+      console.log("math." + " " + Math[prop])
+    }
+    var calc = Math;
+    for (var prop in calc){
+      console.log("calc." + " " + calc[prop])
+    }
+
+//simple inheritance example
+    var politician = {name: "Donald Trump"};
+    var jerk = politician;
+    console.log(jerk.name);
+    console.log(car2.color);
+    console.log(car.color);
+    car2.status();
+//error, windows property is not a string
+    var house = {color: "painters white", windows: four};
+    console.log(house.windows);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
