@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Methods</title>
+    <script type="text/javascript">
+      //add a method to an object literal
+      var hero = {
+        name: "Spider-Man",
+        sayName: function(){
+          console.log(hero.name);
+        }
+      }
+      hero.sayName();
+
+      //add method to an existing object
+      hero.greeting = function () {
+        console.log("Hello");
+      }
+      hero.greeting();
+
+      //add method to constructor function
+      function Hero(name) {
+        this.name = name;
+        this.sayName = function () {
+          console.log(this.name);
+        }
+      }
+      var batman = new Hero("Batman");
+      batman.sayName();
+
+      //add method to prototype
+      function MarvelHero(name) {
+        this.name = name;
+      }
+      MarvelHero.prototype.sayName = function () {
+        console.log(this.name);
+      };
+      var thor = new MarvelHero("Thor");
+      thor.sayName();
+
+      //replace prototype with object literal, assign the constructor property to the prototype
+      function Villian(name){
+        this.name = name;
+      }
+
+      Villian.prototype = {
+        constructor: Villian,
+        sayName: function () {
+          console.log(this.name);
+        },
+        attack: function () {
+          console.log("monologue");
+        }
+      }
+
+      var loki = new Villian("Loki");
+
+      loki.attack();
+
+
+
+
+
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
