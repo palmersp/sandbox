@@ -4,29 +4,118 @@
   <meta charset="utf-8">
   <title>Class Properties</title>
   <style media="screen">
+  div{
+    height: 320px;
+  }
   .hidden{
-    display: none;
+    visibility: hidden;
+  }
+  .box{
+    width: 50px;
+    height: 50px;
+    background: black;
+  }
+  .nastyBox{
+    width: 50px;
+    height: 50px;
+    background: black;
+  }
+  .textIndent{
+    width: 500px;
+  }
+  .lostDiv{
+    width: 50px;
+    height: 50px;
+    background: orange;
+  }
+  .lostParagraph{
+    clear:both;
+    width: 700px;
   }
   </style>
 </head>
 <body>
+
+  <div>
   <button type="button" name="button" onclick="showMenu()">Menu</button>
-  <ul id="sub_articles" class="hidden">
+  <ul id="menu" class="hidden">
     <li>JS</li>
     <li>CSS</li>
     <li>HTML</li>
   </ul>
+  <p id="text">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <div class="box">
+
+  </div>
+</div>
+
+
+<div>
+  <button type="button" name="button" onclick="showNastyMenu()">Menu</button>
+  <ul id="nastyMenu" class="hidden">
+    <li>JS</li>
+    <li>CSS</li>
+    <li>HTML</li>
+  </ul>
+  <p id="nastyText">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <div class="nastyBox">
+
+  </div>
+  <div class="lostDiv">
+
+  </div>
+  <div class="lostParagraph">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+</div>
 
 
   <script type="text/javascript">
+
   function showMenu() {
-    var nav = document.querySelector('#sub_articles');
-    console.log(nav.style);
-    if(nav.style.display == ""){
-      nav.style.display = "block";
-    }else {
-      nav.style.display = "";
-    }
+    //hidden ul becomes visible
+    document.querySelector('#menu').style.visibility = "visible";
+
+    //paragraph background color changes to red
+    document.querySelector('#text').style.background = "#d01d18";
+    //a margin of 50px is added to the paragraph
+    document.querySelector('#text').style.margin = "50px 50px 50px";
+    //works great
+    // document.querySelector('.box').style.background = "#ff3";
+    //box changes position
+    document.querySelector('.box').style.position = "absolute";
+    document.querySelector('.box').style.left = "500px";
+    document.querySelector('.box').style.boxShadow = "inset 10px 10px 5px #888888";
+  }
+
+  function showNastyMenu() {
+    // nothing happens no errors appear in the console
+    document.querySelector('#nastyMenu').style.visibility = null;
+    //doesn't work
+    document.querySelector("#nastyText").style.background = "d01d18";
+
+    // the middle value is incorrect, breaks the whole thing
+    document.querySelector('#nastyText').style.margin = "50px 50 50px";
+    //doesn't work
+    // document.querySelector('.nastyBox').style.background = "#ff3d";
+    //fails to move
+
+    document.querySelector('.nastyBox').style.position = "absolute";
+    //missing the unit of measurement, does not work properly the lost div moves up
+    //and is hidden behind the nastyBox which now has a position of absolute but is not rearranged
+    document.querySelector('.nastyBox').style.left = "500";
+
+    document.querySelector('.box').style.boxShadow = "null 10px 10px 5px #888888";
+
+    //moves off left off of the screen. Elements aren't confined to the position of the screen, they can be moved accidently off screen
+    document.querySelector('.lostParagraph').style.position = "absolute";
+    document.querySelector('.lostParagraph').style.left = "-500px";
+
+
   }
   </script>
 </body>
