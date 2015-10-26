@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <style>
+      #shape{
+        width: 40px;
+        height: 40px;
+        top: 80px; left: 20px;
+        background: radial-gradient(silver, black);
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 10px;
+        border-color: black;
+        position: absolute;
+        animation: anim 6s ease-in-out infinite;
+      }
+      #shape2{
+        width: 40px;
+        height: 40px;
+        top: 80px; left: 180px;
+        background: linear-gradient(red,blue);
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 10px;
+        border-color: black;
+        position: absolute;
+        animation: anim 12s ease-in-out infinite;
+      }
+      @keyframes anim{
+        0% {transform:rotate(0deg);}
+        50% {transform:rotate(720deg);}
+        100% {transform:rotate(1440deg);}
+      }
+      #carbottom{
+        width: 250px;
+        height: 50px;
+        background: blue;
+        position: absolute;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        top: 50px; left: 5px;
+      }
+      #carbumper{
+        width: 260px;
+        height: 10px;
+        background: blue;
+        position: absolute;
+        border-radius: 10%;
+        top: 90px; left: 0px;
+      }
+      #cartop{
+        border-bottom: 75px solid blue;
+        border-left: 25px solid transparent;
+        border-right: 50px solid transparent;
+        height: 0px;
+        width: 75px;
+        position: absolute;
+        top: 0px; left: 40px;
+      }
+      #car{
+        position: absolute;
+        left: 354.16px;
+        animation: anim2 12s ease-in-out infinite;
+      }
+      @keyframes anim2{
+        0 { transform: translate(0px,0px);}
+        40% { transform: translate(354.16px, 0px);}
+        50% { transform: rotateY(180deg); transform-origin: 300px;}
+        90% { transform: translate(354.16px, 0px); }
+        99% { transform: rotateY(0deg); transform-origin: 300px;}
+      }
+    </style>
+
+    <script>
+    </script>
+  </head>
+  <body>
+    <div id="car" class="spin">
+      <div id="cartop"></div>
+      <div id="carbottom"></div>
+      <div id="carbumper"></div>
+      <div id="shape"></div>
+      <div id="shape2"></div>
+    </div>
+    <p><br/><br/><br/><br/><br/><br/>-------------------------------------------<br/>content here</p>
+  </body>
+</html>

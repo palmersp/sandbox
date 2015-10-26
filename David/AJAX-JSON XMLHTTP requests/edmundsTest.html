@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+    </style>
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <select id="makes" onchange="myFunction2()">
+    </select>
+    </div>
+    <div id="id02">
+    </div>
+    <footer>
+      <script>
+        var xmlhttp = new XMLHttpRequest();
+        var url = "http://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=mwbcgn9juhestmpj9gfqhqmz";
+        xmlhttp.onreadystatechange = function()
+        {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+          {
+            myArr = JSON.parse(xmlhttp.responseText);
+            myFunction(myArr);
+          }
+        }
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+        function myFunction(arr)
+        {
+          var out = '<option></option>';
+          var i = arr.makes.length;
+          var j;
+          for(j = 0; j < i; j++)
+          {
+            out += '<option>' + arr.makes[j].name + '</option>';
+          }
+          document.getElementById("makes").innerHTML = out;
+        }
+        function myFunction2()
+        {
+          var arr = myArr;
+          var make = document.getElementById("makes").value;
+          var out2 = "<select><option></option>";
+          var i = arr.makes.length;
+          var j;
+          var len = arr.makes[2].models.length;
+          for(j = 0; j < i; j++)
+          {
+            if (arr.makes[j].name == make)
+            {
+              for(var k = 0; k < arr.makes[j].models.length; k++)
+              {
+                out2 += '<option>' + arr.makes[j].models[k].name + '</option>';
+              }
+            }
+          }
+          out2 += '</select>';
+          document.getElementById("id02").innerHTML = out2;
+        }
+      </script>
+    </footer>
+  </body>
+</html>

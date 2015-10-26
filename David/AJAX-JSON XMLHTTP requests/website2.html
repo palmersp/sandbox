@@ -14,21 +14,18 @@
 			}
 			else if (obj.i == 1)
 			{
-				obj.i = 2;
-			}
-			else if (obj.i == 2)
-			{
 				obj.i = 0;
 			}
-			
+
 			return obj.i;
+
 		}
 		function loadXMLDoc()
 		{
 
 			// point to a url that doesn't exist or a page that doesn't exist
 			// put null instead of get and filename
-			var file = ["ajax_info.txt", null, "ajax2.txt"];
+			var file = ["ajax_info.txt", "ajax2.txt"];
 			var	xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange=function()
 			{

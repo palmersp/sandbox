@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <style>
+      #shape{
+        width: 50px;
+        height: 50px;
+        background: radial-gradient(silver, black);
+        border-radius: 50%;
+        position: absolute;
+        animation: anim 6s ease-in-out infinite alternate;
+      }
+      @keyframes anim{
+        0% {transform:rotate(0deg);}
+        100% {transform:rotate(720deg);}
+        from { top: 80px; left: 10px;}
+        to   { top: 80px; left: 324.16px;}
+      }
+      #shape2{
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(red,blue);
+        border-radius: 50%;
+        position: absolute;
+        animation: anim2 6s ease-in-out infinite alternate;
+      }
+      @keyframes anim2{
+        0% {transform:rotate(0deg);}
+        100% {transform:rotate(720deg);}
+        from { top: 80px; left: 160px;}
+        to   { top: 80px; left: 474.16px;}
+      }
+      #carbottom{
+        width: 220px;
+        height: 50px;
+        background: blue;
+        position: absolute;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        animation: anim3 6s ease-in-out infinite alternate;
+      }
+      @keyframes anim3{
+        from { top: 50px; left: 5px;}
+        to { top: 50px; left: 319.16;}
+      }
+      #carbumper{
+        width: 230px;
+        height: 10px;
+        background: blue;
+        position: absolute;
+        border-radius: 10%;
+        animation: anim4 6s ease-in-out infinite alternate;
+      }
+      @keyframes anim4{
+        from { top: 90px; left: 0px;}
+        to { top: 90px; left: 314.16px;}
+      }
+      #cartop{
+        border-bottom: 75px solid blue;
+        border-left: 25px solid transparent;
+        border-right: 50px solid transparent;
+        height: 0px;
+        width: 75px;
+        position: absolute;
+        /*border-top-left-radius: 100%;
+        border-top-right-radius: 100%;*/
+        animation: anim5 6s ease-in-out infinite alternate;
+      }
+      @keyframes anim5{
+        from { top: 0px; left: 40px; }
+        to { top: 0px; left: 354.16px; }
+      }
+    </style>
+    <script>
+    </script>
+  </head>
+  <body>
+    <div id="cartop"></div>
+    <div id="carbottom"></div>
+    <div id="carbumper"></div>
+    <div id="shape"></div>
+    <div id="shape2"></div>
+    <p></br><br/></br><br/><br/>------------------------------------------------------<br/>content here</p>
+  </body>
+</html>
