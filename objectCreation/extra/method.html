@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Methods</title>
+    <script type="text/javascript">
+
+//to create a method assign function to an objects property
+
+
+//in this example we are adding a method to an object constructor
+      var Person = function (firstName) {
+        this.firstName = firstName;
+      };
+
+      var person3 = new Person("Tommy");
+
+      Person.prototype.sayHello = function() {
+        console.log("Hello, I'm " + this.firstName);
+      };
+
+      var person1 = new Person("Alice");
+      var person2 = new Person("Bob");
+
+      // call the Person sayHello method.
+      person1.sayHello(); // logs "Hello, I'm Alice"
+      person2.sayHello(); // logs "Hello, I'm Bob"
+      person3.sayHello();// this line works because objects are references
+
+
+
+//define a method in an object constructor
+      function person(firstName, lastName, age, eyeColor) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.eyeColor = eyeColor;
+    this.changeName = function (name) {
+        this.lastName = name;
+    }
+}
+
+// myMother.changeName("Doe");
+
+
+//add a method to an object
+
+car = {
+  make: "Toyota",
+  model: "Camry",
+  speed: ""
+}
+
+car.changeSpeed = function(speed){
+  this.speed = speed;
+  console.log(this.speed);
+}
+
+car.changeSpeed(55);
+
+//anonymous function, its called by calling the variable name.
+//but since functions are objects we can add properties to them
+
+var test = function () {
+  console.log(56);
+}
+test();
+test.green = "money";
+
+console.log(test.green);
+
+
+//trying to use anonymous function as a constructor
+var test3 = new test();
+console.log(test3);
+test.prototype.red = "red";
+
+console.log(test3.red)
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
