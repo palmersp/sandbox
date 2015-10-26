@@ -4,7 +4,7 @@
 		<title>AJAX test</title>
 		<meta charset="utf-8">
 		<script>
-		var myObj = { i : 0}
+		var myObj = { i : 2}
 		function changeNum(obj)
 		{
 
@@ -26,9 +26,23 @@
 		}
 		function loadXMLDoc()
 		{
+			var file = ["ajax_info.txt", "ajax2.txt", "ajax_info1.txt"];
+			var	xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange=function()
+			{
+				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("Get",file[changeNum(myObj)],true);
+			xmlhttp.send();
+		}
+		function loadXMLDoc1()
+		{
 
 			// point to a url that doesn't exist or a page that doesn't exist
-			// put null instead of get and filename
+			// put null instead of filename
 			var file = ["ajax_info.txt", null, "ajax2.txt"];
 			var	xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange=function()
@@ -41,13 +55,58 @@
 			xmlhttp.open("Get",file[changeNum(myObj)],true);
 			xmlhttp.send();
 		}
-
+		function loadXMLDoc2()
+		{
+			// one file name not in quotes.
+			var file = ["ajax_info.txt", "ajax2.txt", ajax2.txt];
+			var	xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange=function()
+			{
+				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("Get",file[changeNum(myObj)],true);
+			xmlhttp.send();
+		}
+		function loadXMLDoc3()
+		{
+			var file = ["ajax_info.txt", "ajax2.txt", "edmundsTest.html"];
+			var	xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange=function()
+			{
+				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("Get",file[changeNum(myObj)],true);
+			xmlhttp.send();
+		}
+		function loadXMLDoc3()
+		{
+			var file = ["ajax_info.txt", "ajax2.txt", "ajax3.txt"];
+			var	xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange=function()
+			{
+				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("Get",file[changeNum(myObj)],true);
+			xmlhttp.send();
+		}
 		</script>
 	</head>
 	<body>
 
 		<div id="myDiv"><h2>Let AJAX change this text</h2></div>
-		<button type="button" onclick="loadXMLDoc()">Change Content</button>
-
+		<button type="button" onclick="loadXMLDoc()">Happy Path</button>
+		<button type="button" onclick="loadXMLDoc1()">Nasty Path 1</button>
+		<button type="button" onclick="loadXMLDoc2()">Nasty Path 2</button>
+		<button type="button" onclick="loadXMLDoc3()">Nasty Path 3</button>
+		<button type="button" onclick="loadXMLDoc3()">Nasty Path 4</button>
 	</body>
 </html>
