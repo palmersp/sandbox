@@ -2,7 +2,7 @@
 
 <h2>This is my final thought</h2>
 
-You made it to the best place in the website!!!!
+<p>You made it to the best place in the website!!!!</p>
 
 <style>
 #myDiv

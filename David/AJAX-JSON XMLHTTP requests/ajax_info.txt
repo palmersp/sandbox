@@ -2,19 +2,10 @@
 
 <h2>Here is some text</h2>
 
-What are you doing?
-
-<style>
-#myDiv
-{
-   background-color:green;
-}<h2>Here is some text</h2>
-
-What are you doing?
+<p>What are you doing?</p>
 
 <style>
 #myDiv
 {
    background-color:green;
 }
-</style>

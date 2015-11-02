@@ -3,26 +3,52 @@
 	<head>
 		<title>AJAX test</title>
 		<meta charset="utf-8">
+
+	</head>
+	<body>
+
+		<div id="myDiv"><h2>Let AJAX change this text</h2></div></div><br/><br/><br/>
+
+		<button type="button" onclick="loadHappyPath()">Happy Path</button>
+		<div id="nasty1"><h2>Nasty1</h2></div><br/><br/><br/>
+		<div id="nasty2"><h2>Nasty2</h2></div><br/><br/><br/>
+		<div id="nasty3"><h2>Nasty3</h2></div><br/><br/><br/>
+		<div id="nasty4"><h2>Nasty4</h2></div><br/><br/><br/>
+		<button type="button" onclick="loadNastyPath()">Nasty Paths</button>
+	</body>
+	<footer>
 		<script>
-		var myObj = { i : 2}
+		myObj = { i : 2}
 		function changeNum(obj)
 		{
 
-			if (obj.i == 0)
+			if (myObj.i == 0)
 			{
-				obj.i = 1;
+				myObj.i = 1;
 			}
-			else if (obj.i == 1)
+			else if (myObj.i == 1)
 			{
-				obj.i = 2;
+				myObj.i = 2;
 			}
-			else if (obj.i == 2)
+			else if (myObj.i == 2)
 			{
-				obj.i = 0;
+				myObj.i = 0;
 			}
 
-			return obj.i;
-
+		}
+		function getNum(){
+			return myObj.i;
+		}
+		function loadNastyPath(){
+			changeNum(myObj);
+			loadXMLDoc1();
+			loadXMLDoc2();
+			loadXMLDoc3();
+			loadXMLDoc4();
+		}
+		function loadHappyPath(){
+			changeNum(myObj);
+			loadXMLDoc();
 		}
 		function loadXMLDoc()
 		{
@@ -35,7 +61,7 @@
 					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
 				}
 			}
-			xmlhttp.open("Get",file[changeNum(myObj)],true);
+			xmlhttp.open("Get",file[getNum()],true);
 			xmlhttp.send();
 		}
 		function loadXMLDoc1()
@@ -49,28 +75,13 @@
 			{
 				if (xmlhttp.readyState==4 && xmlhttp.status==200)
 				{
-					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+					document.getElementById("nasty1").innerHTML=xmlhttp.responseText;
 				}
 			}
-			xmlhttp.open("Get",file[changeNum(myObj)],true);
+			xmlhttp.open("Get",file[getNum()],true);
 			xmlhttp.send();
 		}
 		function loadXMLDoc2()
-		{
-			// one file name not in quotes.
-			var file = ["ajax_info.txt", "ajax2.txt", ajax2.txt];
-			var	xmlhttp = new XMLHttpRequest();
-			xmlhttp.onreadystatechange=function()
-			{
-				if (xmlhttp.readyState==4 && xmlhttp.status==200)
-				{
-					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
-				}
-			}
-			xmlhttp.open("Get",file[changeNum(myObj)],true);
-			xmlhttp.send();
-		}
-		function loadXMLDoc3()
 		{
 			var file = ["ajax_info.txt", "ajax2.txt", "edmundsTest.html"];
 			var	xmlhttp = new XMLHttpRequest();
@@ -78,10 +89,10 @@
 			{
 				if (xmlhttp.readyState==4 && xmlhttp.status==200)
 				{
-					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+					document.getElementById("nasty2").innerHTML=xmlhttp.responseText;
 				}
 			}
-			xmlhttp.open("Get",file[changeNum(myObj)],true);
+			xmlhttp.open("Get",file[getNum()],true);
 			xmlhttp.send();
 		}
 		function loadXMLDoc3()
@@ -92,21 +103,27 @@
 			{
 				if (xmlhttp.readyState==4 && xmlhttp.status==200)
 				{
-					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+					document.getElementById("nasty3").innerHTML=xmlhttp.responseText;
 				}
 			}
-			xmlhttp.open("Get",file[changeNum(myObj)],true);
+			xmlhttp.open("Get",file[getNum()],true);
+			xmlhttp.send();
+		}
+		function loadXMLDoc4()
+		{
+			// one file name not in quotes.
+			var file = ["ajax_info.txt", "ajax2.txt", ajax2.txt];
+			var	xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange=function()
+			{
+				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+					document.getElementById("nasty4").innerHTML=xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("Get",file[getNum()],true);
 			xmlhttp.send();
 		}
 		</script>
-	</head>
-	<body>
-
-		<div id="myDiv"><h2>Let AJAX change this text</h2></div>
-		<button type="button" onclick="loadXMLDoc()">Happy Path</button>
-		<button type="button" onclick="loadXMLDoc1()">Nasty Path 1</button>
-		<button type="button" onclick="loadXMLDoc2()">Nasty Path 2</button>
-		<button type="button" onclick="loadXMLDoc3()">Nasty Path 3</button>
-		<button type="button" onclick="loadXMLDoc3()">Nasty Path 4</button>
-	</body>
+	</footer>
 </html>

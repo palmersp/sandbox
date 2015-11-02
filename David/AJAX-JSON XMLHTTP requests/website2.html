@@ -4,25 +4,28 @@
 		<title>AJAX test</title>
 		<meta charset="utf-8">
 		<script>
-		var myObj = { i : 0}
-		function changeNum(obj)
-		{
-
-			if (obj.i == 0)
-			{
-				obj.i = 1;
-			}
-			else if (obj.i == 1)
-			{
-				obj.i = 0;
-			}
-
-			return obj.i;
-
+		var flag = true;
+		function changeNum() {
+			flag = !flag;
 		}
+		// var myObj = { i : 1}
+		// function changeNum(obj)
+		// {
+		//
+		// 	if (obj.i == 0)
+		// 	{
+		// 		obj.i = 1;
+		// 	}
+		// 	else if (obj.i == 1)
+		// 	{
+		// 		obj.i = 0;
+		// 	}
+		//
+		// 	return obj.i;
+		//
+		// }
 		function loadXMLDoc()
 		{
-
 			// point to a url that doesn't exist or a page that doesn't exist
 			// put null instead of get and filename
 			var file = ["ajax_info.txt", "ajax2.txt"];
@@ -34,7 +37,8 @@
 					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
 				}
 			}
-			xmlhttp.open("Get",file[changeNum(myObj)],true);
+			flag = !flag;
+			xmlhttp.open("Get",file[flag*1],true);
 			xmlhttp.send();
 		}
 
