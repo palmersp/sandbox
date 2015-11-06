@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Methods</title>
+    <script type="text/javascript">
+
+
+//Happy Paths
+      //add a method to an object literal
+      var hobbit = {
+        name: "Bilbo Baggins",
+        sayName: function(){
+          console.log(hobbit.name);
+        }
+      }
+      hobbit.sayName();
+
+
+      //add method to an existing object
+      hobbit.greeting = function () {
+        console.log("Hello");
+      }
+      hobbit.greeting();
+
+
+      //add method to constructor function
+      function SuperHero(name) {
+        this.name = name;
+        this.sayName = function () {
+          console.log(this.name);
+        }
+      }
+      var batman = new SuperHero("Batman");
+      batman.sayName();
+
+
+      //add method to prototype
+      function Animal(name) {
+        this.name = name;
+      }
+      Animal.prototype.sayName = function () {
+        console.log(this.name);
+      };
+      var goat = new Animal("Wilfred");
+      goat.sayName();
+
+
+      //replace prototype with object literal, assign the constructor property to the prototype
+      function Country(name){
+        this.name = name;
+      }
+
+      Country.prototype = {
+        constructor: Country,
+        sayName: function () {
+          console.log(this.name);
+        },
+        nationalAnthem: function () {
+          console.log("O Canada");
+        }
+      }
+
+      var canada = new Country("Canada");
+
+      canada.nationalAnthem();
+
+
+//Nasty Paths
+
+  //replace prototype with object literal, the constructor now points to Object instead of NastyCountry
+  function NastyCountry(name){
+    this.name = name;
+  }
+
+  NastyCountry.prototype = {
+    sayName: function () {
+      console.log(this.name);
+    }
+  }
+
+  var iran = new NastyCountry("Iran");
+
+  iran.sayName();
+
+  console.log(iran.name.toUpperCase());
+
+
+
+
+
+    </script>
+  </head>
+  <body>
+
+
+
+  </body>
+</html>
