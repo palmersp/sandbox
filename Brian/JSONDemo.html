@@ -2,10 +2,100 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script type="text/javascript" src="JSONSandbox.js"></script>
+
     <title></title>
 </head>
-<body>
+<br>
+<form id="contact" action="" method="get">
+    First name: <input type="text" id="fname"><br>
+    Last name: <input type="text" id="lname"><br>
+    Phone number: <input type="text" id="phone"><br>
+    Email address: <input type="text" id="email"><br>
+</form>
+<br><br>
+<button id="convert">Submit</button>
+<button id="break">Break</button>
 
+<script type="text/javascript">
+
+    // Get focus on the first input text value of the form when the page loads.
+    window.onload = function() {
+        document.getElementById("fname").focus();
+    }
+
+    // Add event listener to the Submit button that when clicked, the parseData function
+    // gets executed.
+    document.getElementById("convert").addEventListener("click", parseData);
+
+    // Stringifies and also parses all text input field values.
+    function parseData() {
+        // Gets the string of the first name text input field.
+        var firstName = document.getElementById("fname").value;
+        // Stringifies the string from the first name input field.
+        var fnameJSON = JSON.stringify(firstName);
+        // Parses the string of the  first name text input field.
+        var fnameString = JSON.parse(fnameJSON);
+
+        // Gets the string of the last name text input field.
+        var lastName = document.getElementById("lname").value;
+        // Stringifies the string from the last name input field.
+        var lnameJSON = JSON.stringify(lastName);
+        // Parses the string of the last first name text input field.
+        var lnameString = JSON.parse(lnameJSON);
+
+        // Gets the string of the phone number text input field.
+        var phoneNumber = document.getElementById("phone").value;
+        // Stringifies the string from the phone number input field.
+        var phoneJSON = JSON.stringify(phoneNumber);
+        // Parses the string of the phone number text input field.
+        var phoneString = JSON.parse(phoneJSON);
+
+        // Gets the string of the email address text input field.
+        var email = document.getElementById("email").value;
+        // Stringifies the string from the email address input field.
+        var emailJSON = JSON.stringify(email);
+        // Parses the string of the email address text input field.
+        var emailString = JSON.parse(emailJSON);
+
+        // Prints the stringified input text field values.
+        document.write("Stringified:" + "<br>" + fnameJSON + "<br>" + lnameJSON + "<br>"
+                + phoneJSON + "<br>" +  emailJSON);
+
+        // Prints the parsed input text field values.
+        document.write("<br>" + "<br>" + "Parsed:" + "<br>" + fnameString + "<br>" +
+                lnameString + "<br>" + phoneString + "<br>" + emailString);
+    }
+
+    // Nasty paths
+
+    // Add event listener to the Break button that when clicked, the breakData function
+    // gets executed.
+    document.getElementById("break").addEventListener("click", breakData);
+
+    // Break the code.
+    function breakData(){
+        // Empty string for the first name
+        var emptyFirstName = "";
+        // Null value for the first name
+        var nullFirstName = null;
+
+        // Stringifies an empty string.
+        var fnameJSONEmpty = JSON.stringify(emptyFirstName);
+        // Does not parse an empty string.
+        var fnameStringEmpty = JSON.parse(fnameJSONEmpty);
+
+        // Does not stringify a null value. It displays null.
+        var fnameJSONNull = JSON.stringify(nullFirstName);
+        // Does not parse a null value. It displays null.
+        var fnameStringNull = JSON.parse(fnameJSONNull);
+
+        // Prints the result of trying to stringify an empty string.
+        document.write(fnameJSONEmpty + "<br>" + fnameStringEmpty);
+
+        // Prints the result of trying to parse an empty JSON string.
+        document.write("<br>" + "<br>" + fnameJSONNull + "<br>" + fnameStringNull);
+    }
+
+</script>
 </body>
 </html>

@@ -1,0 +1,123 @@
+	<!DOCTYPE html>
+	<html>
+	  <head>
+	    <meta charset="utf-8">
+	    <title>Events</title>
+      <style media="screen">
+        .box, .nastyBox, .touchBox, .nastyTouchBox{
+          width: 500px;
+          height: 500px;
+          background: black;
+        }
+				body{
+					font-size: 40px;
+				}
+				#password, #nastyPassword{
+					font-size: 40px;
+				}
+				header{
+					display: none;
+					position: fixed;
+					font-size: 50px;
+					background-color: blue;
+					color = white;
+					width: 100%;
+				}
+      </style>
+	  </head>
+	  <body>
+			<header id="menu">
+				<p>
+					Menu
+				</p>
+			</header>
+      <div class="box"></div><br>
+      <input id="password" type="password" name="name" value=""><br><br>
+			<div class="touchBox"></div><br>
+      <div class="nastyBox"></div><br>
+			<div class="nastyTouchBox"></div>
+			<input id="nastyPassword" type="input" name="name" value=""><br><br>
+	    <footer>
+        <script type="text/javascript">
+
+          document.querySelector(".box").onclick = function (e) {
+						console.log();
+            e.target.style.background = "green";
+            console.log(e);
+          }
+
+          document.querySelector("#password").onchange = function(e){
+            e.target.type = "input";
+            console.log(e);
+
+            // console.log(e.target);//both of these are the same
+            // console.log(document.querySelector(".password"));
+          }
+
+					window.onscroll = function(e){
+						console.log(e);
+						if(document.body.scrollTop > 50){
+							document.querySelector("#menu").style.display = "block";
+						}
+						else{
+							document.querySelector("#menu").style.display = "none";
+						}
+					}
+
+					document.querySelector(".touchBox").ontouchstart = function (e) {
+						console.log(e);
+						e.target.style.width = "100px";
+						e.target.style.height = "100px";
+					}
+					document.querySelector(".touchBox").ontouchmove = function (e) {
+						console.log(e);
+						e.target.style.background = "red";
+					}
+					document.querySelector(".touchBox").ontouchend = function (e) {
+						console.log(e);
+						e.target.style.width = "500px";
+						e.target.style.height = "500px";
+					}
+
+
+
+//Beware Nasty Paths Below
+
+          // does not work because I am not passing in the parameter, e is not defined
+          document.querySelector(".nastyBox").onclick = function () {
+            e.target.style.background = "green";
+            console.log(e);
+          }
+
+          //does not work because onchange only works for <select>,<input>, <keygen>, <textarea>
+          document.querySelector(".box").style.background.onchange = function (e) {
+            e.target.style.position = "absolute";
+            e.target.style.left = "500px";
+            console.log(e);
+          }
+
+					//scrollTop comparison value cannot contain pixels
+					//does not throw an error, the event happens it just doesn't work
+					window.onscroll = function(e){
+						console.log(e);
+						if(document.body.scrollTop > "50px"){
+							document.querySelector("#menu").style.display = "block";
+						}
+						else{
+							document.querySelector("#menu").style.display = "none";
+						}
+					}
+
+					// doesn't throw an error, but erases the value
+					document.querySelector("#nastyPassword").onchange = function(e){
+            e.target.value = null;
+            console.log(e);
+          }
+
+
+
+
+        </script>
+      </footer>
+	  </body>
+	</html>

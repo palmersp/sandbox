@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Collect input</title>
+  </head>
+  <body>
+    <form class="box">
+      <input type="input" name="fname" value="">
+      <input type="input" name="lname" value="">
+      <input type="button" name="submit" value="Submit">
+    </form>
+  <script type="text/javascript">
+  // document.querySelector("[name='fname']").onchange = function (e) {
+  //   var fname = e.target.value;
+  // }
+  document.querySelector("[type='button']").onclick = function (e) {
+    //capture the values and store them in variables
+    var fname = document.querySelector("[name='fname']").value;
+    var lname = document.querySelector("[name='lname']").value;
+
+    //get rid of the values in the form, while they remain stored in the variables
+    //the user is happy because the values disappeared like they normally do when something is submitted
+    document.querySelector("[name='fname']").value = "";
+    document.querySelector("[name='lname']").value = "";
+
+  }
+
+  </script>
+  </body>
+</html>
