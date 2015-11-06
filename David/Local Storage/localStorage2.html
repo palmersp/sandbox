@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+  <form id="userInfo">
+    Miles: <input name="milesTraveled" type="text">
+    Gallons it took to fill: <input name="gallons" type="text">
+    <input type="submit" value="Submit"></input>
+  </form>
+  <div id="result">hello</div>
+  <footer>
+    <script>
+
+      document.querySelector("[type='submit']").onclick = function(e){
+        var mileage = {};
+        mileage['miles'] = parseFloat(document.querySelector("[name='milesTraveled']").value);
+        mileage['gallons'] = parseFloat(document.querySelector("[name='gallons']").value);
+        mileage['mpg'] = mileage.miles / mileage.gallons;
+        localStorage.setItem("mileage", JSON.stringify(mileage));
+        console.log(mileage);
+
+      document.querySelector("[name='milesTraveled']").value = "";
+      document.querySelector("[name='gallons']").value = "";
+
+      }
+      var data = localStorage.getItem("mileage") + " ";
+      data = JSON.parse(data);
+      //data += localStorage.getItem("mileage.mpg");
+       document.getElementById("result").innerHTML = data.miles + " " + data.gallons + " " + data.mpg;
+    </script>
+  </footer>
+</body>
+</html>

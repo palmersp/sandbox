@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+  <form id="userInfo">
+    First Name: <input name="fName" type="text">
+    Last Name: <input name="lName" type="text">
+    Address: <input name="address" type="text">
+    <input type="submit" value="Submit"></input>
+  </form>
+  <div id="result">hello</div>
+  <footer>
+    <script>
+      document.querySelector("[type='submit']").onclick = function(e){
+
+        localStorage.setItem("fName", document.querySelector("[name='fName']").value);
+        document.querySelector("[name='fName']").value = "";
+
+        localStorage.setItem("lName", document.querySelector("[name='lName']").value);
+        document.querySelector("[name='lName']").value = "";
+
+        localStorage.setItem("address", document.querySelector("[name='address']").value);
+        document.querySelector("[name='address']").value = "";
+
+
+
+      }
+      var data = "";
+      data += localStorage.getItem("fName") + " ";
+      data += localStorage.getItem("lName") + " ";
+      data += localStorage.getItem("address") + " ";
+       document.getElementById("result").innerHTML = data;
+    </script>
+  </footer>
+</body>
+</html>
