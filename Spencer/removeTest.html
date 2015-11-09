@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Remove Test</title>
+  </head>
+  <body>
+    <p>
+      Paragraph1
+    </p>
+    <p>
+      Paragraph2
+    </p>
+    <p>
+      paragraph3
+    </p>
+    <button type="button" name="button" onclick="removeIt()">Button</button>
+    <script type="text/javascript">
+
+    //remove is a built in function, this function cannot be named remove
+      function removeIt() {
+        document.body.removeChild(document.body.children[0]);
+      }
+
+    </script>
+  </body>
+</html>
