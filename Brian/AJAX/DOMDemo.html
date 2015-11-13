@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<style>
+    h3 { width: 125px; }
+</style>
+
+    <title></title>
+</head>
+
+<h2 id="h2Color">Welcome!</h2>
+
+<h3 id="h3Color">Hover over me!</h3>
+
+<button id="removechild" onclick="removeChild()">Remove</button>
+
+<button id="appendchild" onclick="appendChild()">Append</button>
+
+<button id="insertbefore" onclick="insertBefore()">Insert Before</button>
+
+<ol id="animals"><li>dog</li><li>cat</li><li>lion</li></ol>
+
+<ul id="lightColors"><li>yellow</li><li>orange</li></ul>
+
+<ul id="darkColors"><li>brown</li><li>gray</li></ul>
+
+</body>
+<script type="text/javascript">
+
+    /* Event listener for the Insert Before button. When clicked, it executes the
+    ** insertBefore function. */
+    document.getElementById("insertbefore").addEventListener("click", insertBefore);
+
+    // Inserts a new animal as the first item in the animals list.
+    function insertBefore() {
+        var newItem = document.createElement("LI");
+        var textnode = document.createTextNode("Tigger");
+        newItem.appendChild(textnode);
+        var list = document.getElementById("animals");
+        list.insertBefore(newItem, list.childNodes[0]);
+    }
+
+    /* Event listener for the Remove button. When clicked, it executes the
+    ** removeChild function. */
+    document.getElementById("removechild").addEventListener("click", removeChild);
+
+    /* Removes the first item in the animals list. If you continue to click the Remove button
+    ** it will keep removing items in the list until it's empty. */
+    function removeChild() {
+        var list = document.getElementById("animals");
+        list.removeChild(list.childNodes[0]);
+    }
+
+    /* Event listener for the Append button. When clicked, the appendChild function
+    ** is executed. */
+    document.getElementById("appendchild").addEventListener("click", appendChild);
+
+    /* Appends the first element of the darkColors list to the lightColors list as
+    ** the last element of the lightColors list. */
+    function appendChild(){
+        var node = document.getElementById("darkColors").lastChild;
+        document.getElementById("lightColors").appendChild(node);
+    }
+
+    var x;
+    var color;
+
+    // Change color of the h1 text in a one-second interval.
+    function changeColors() {
+        x = 1;
+        setInterval(change, 1000);
+    }
+
+    // Alternate colors red and greed every second to the h3 text.
+    function change() {
+        if (x === 1) {
+            color = "red";
+            x = 2;
+        } else {
+            color = "green";
+            x = 1;
+        }
+        // Changes the color of the h1 text.
+        document.getElementById("h2Color").style.color = color;
+    }
+    // Calls the method to change colors when the page loads.
+    window.addEventListener("load", changeColors);
+
+    // Change the h3 text color to orange when the mouse is over.
+    function mouseOver() {
+        document.getElementById("h3Color").style.color = "orange";
+    }
+
+    // Change the color back to black when the mouse not over the h3 text.
+    function mouseOut() {
+        document.getElementById("h3Color").style.color = "black";
+    }
+
+    // Event listener for the h3 header for hovering the mouse over it.
+    document.getElementById("h3Color").addEventListener("mouseover", mouseOver);
+    // Event listener for the h3 header for moving the mouse away from the h3 header.
+    document.getElementById("h3Color").addEventListener("mouseout", mouseOut);
+</script>
+</html>

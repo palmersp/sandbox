@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<style>
+		#myDiv {
+			background-color:gray;
+		}
+	</style>
+	<script>
+
+	</script>
+</head>
+<body>
+<div id="myDiv"><h2>Hello</h2></div>
+<select id="makes" onchange="myFunction2()">
+</select>
+</div>
+<div id="cars">
+</div>
+<br>
+<!--buttons that executes the function that has an empty string URL which loads current website-->
+<button type="button" onclick="loadXMLDocNasty()">Nasty</button>
+<br><br>
+<!--button that executes the a function that gets 404 URL not found-->
+<button type="button" onclick="loadXMLDocNasty2()">Nasty</button>
+<footer>
+	<script>
+		// Store the object used to exchange data with a server behind the scenes in a temp variable.
+		var xmlhttp = new XMLHttpRequest();
+		// URL for the car API
+		var url = "http://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=mwbcgn9juhestmpj9gfqhqmz";
+		xmlhttp.onreadystatechange = function()
+		{
+			// Check if the request finished and the response is ready
+			// and the status is OK.
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+			{
+				// parse the xmlhttp response into JSON and store it in a variable.
+				myArr = JSON.parse(xmlhttp.responseText);
+				// Call my function and pass the JSON string as a parameter
+				myFunction(myArr);
+			}
+		}
+		// Open xmlhttp request using the GET method asynchronous
+		xmlhttp.open("GET", url, true);
+		// Sends the xmlhttp request to the server.
+		xmlhttp.send();
+
+		// Function with the JSON string parameter
+		function myFunction(arr)
+		{
+			// Variable that holds an option for the list of cars.
+			var out = '<option></option>';
+			// Variable that holds
+			var i = arr.makes.length;
+			var j;
+			for(j = 0; j < i; j++)
+			{
+				out += '<option>' + arr.makes[j].name + '</option>';
+			}
+			// Display the all the car makes and names as a list of options.
+			document.getElementById("makes").innerHTML = out;
+		}
+		function myFunction2()
+		{
+			var arr = myArr;
+			var make = document.getElementById("makes").value;
+			var out2 = "<select><option></option>";
+			var i = arr.makes.length;
+			var j;
+			var len = arr.makes[2].models.length;
+			for(j = 0; j < i; j++)
+			{
+				if (arr.makes[j].name == make)
+				{
+					for(var k = 0; k < arr.makes[j].models.length; k++)
+					{
+						out2 += '<option>' + arr.makes[j].models[k].name + '</option>';
+					}
+				}
+			}
+			out2 += '</select>';
+			document.getElementById("cars").innerHTML = out2;
+		}
+
+		/* Nasty Paths */
+
+		// Empty string URL loads current website
+		function loadXMLDocNasty()
+		{
+			// Empty URL
+			var url = "";
+			// Store the object used to exchange data with a server behind the scenes in a temp variable.
+			var	xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange=function()
+			{
+				// Check if the request finished and the response is ready
+				// and the status is OK.
+				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+					// Display the file or website in the div.
+					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+				}
+			}
+			// Open xmlhttp request using the GET method asynchronous
+			xmlhttp.open("Get",url,true);
+			// Sends the xmlhttp request to the server.
+			xmlhttp.send();
+		}
+
+		// 404 URL not found
+		function loadXMLDocNasty2()
+		{
+			// Empty URL
+			var url = "bad.html";
+			// Store the object used to exchange data with a server behind the scenes in a temp variable.
+			var	xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange=function()
+			{
+				// Check if the request finished and the response is ready
+				// and the status is OK.
+				xmlhttp.readyState = 4;
+				xmlhttp.status = 404;
+				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+					// Display the file or website in the div.
+					document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+				} else {
+					document.getElementById("myDiv").innerHTML="404  Website Not Found.";
+				}
+			}
+			// Open xmlhttp request using the GET method not asynchronous
+			xmlhttp.open("Get",url,false);
+			// Sends the xmlhttp request to the server.
+			xmlhttp.send();
+		}
+
+	</script>
+</footer>
+</body>
+</html>

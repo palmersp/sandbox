@@ -15,9 +15,17 @@
 
 <button id="removechild" onclick="removeChild()">Remove</button>
 
+<button id="nastyRemove" onclick="nastyRemoveChild()">Nasty Remove</button>
+
 <button id="appendchild" onclick="appendChild()">Append</button>
 
+<button id="nastyAppend" onclick="nastyAppendChild()">Nasty Append</button>
+
 <button id="insertbefore" onclick="insertBefore()">Insert Before</button>
+
+<button id="nastyInsertbefore" onclick="badInsertBefore()">Nasty Insert Before</button>
+
+<button id="nastyInsertbefore2" onclick="badInsertBefore2()">Nasty Insert Before 2</button>
 
 <ol id="animals"><li>dog</li><li>cat</li><li>lion</li></ol>
 
@@ -27,6 +35,47 @@
 
 </body>
 <script type="text/javascript">
+
+    var x;
+    var color;
+
+    // Change color of the h1 text in a one-second interval.
+    function changeColors() {
+        x = 1;
+        setInterval(change, 1000);
+    }
+
+    // Alternate colors red and greed every second to the h3 text.
+    function change() {
+        if (x === 1) {
+            color = "red";
+            x = 2;
+        } else {
+            color = "green";
+            x = 1;
+        }
+        // Changes the color of the h1 text.
+        document.getElementById("h2Color").style.color = color;
+    }
+
+    // Event listener for the h3 header for hovering the mouse over it.
+    document.getElementById("h3Color").addEventListener("mouseover", mouseOver);
+    // Event listener for the h3 header for moving the mouse away from the h3 header.
+    document.getElementById("h3Color").addEventListener("mouseout", mouseOut);
+
+    // Calls the method to change colors when the page loads.
+    window.addEventListener("load", changeColors);
+
+    // Change the h3 text color to orange when the mouse is over.
+    function mouseOver() {
+        document.getElementById("h3Color").style.color = "orange";
+    }
+
+    // Change the color back to black when the mouse not over the h3 text.
+    function mouseOut() {
+        document.getElementById("h3Color").style.color = "black";
+    }
+
 
     /* Event listener for the Insert Before button. When clicked, it executes the
     ** insertBefore function. */
@@ -63,43 +112,46 @@
         document.getElementById("lightColors").appendChild(node);
     }
 
-    var x;
-    var color;
+    /* Nasty Paths */
 
-    // Change color of the h1 text in a one-second interval.
-    function changeColors() {
-        x = 1;
-        setInterval(change, 1000);
+    /* Event listener for the Nasty Insert Before button. When clicked, it executes the
+     ** badInsertBefore function. */
+    document.getElementById("nastyInsertbefore").addEventListener("click", badInsertBefore);
+
+    // Inserts a new animal twice at the end of the animals list.
+    function badInsertBefore() {
+        var newItem = document.createElement("LI");
+        var textnode = document.createTextNode("Tigger");
+        newItem.appendChild(textnode);
+        var list = document.getElementById("animals");
+        list.insertBefore(newItem, list.childNodes[4]);
+    }
+//
+//    document.getElementById("nastyInsertbefore2").addEventListener("click", badInsertBefore2);
+//
+//    function badInsertBefore2() {
+//        var newItem = document.createElement("LI");
+//        var textnode = document.createTextNode("Tigger");
+//        newItem.removeChild(textnode);
+//        var list = document.getElementById("animals");
+//        list.removeChild(newItem, list.childNodes[4]);
+//    }
+
+    document.getElementById("nastyRemove").addEventListener("click", nastyRemoveChild);
+
+    // Inserts a new animal twice at the end of the animals list.
+    function nastyRemoveChild() {
+        var list = document.getElementById("animals");
+        list.removeChild(list.childNodes[1]);
     }
 
-    // Alternate colors red and greed every second to the h3 text.
-    function change() {
-        if (x === 1) {
-            color = "red";
-            x = 2;
-        } else {
-            color = "green";
-            x = 1;
-        }
-        // Changes the color of the h1 text.
-        document.getElementById("h2Color").style.color = color;
-    }
-    // Calls the method to change colors when the page loads.
-    window.addEventListener("load", changeColors);
+    document.getElementById("nastyAppend").addEventListener("click", nastyAppendChild);
 
-    // Change the h3 text color to orange when the mouse is over.
-    function mouseOver() {
-        document.getElementById("h3Color").style.color = "orange";
+    // Inserts a new animal twice at the end of the animals list.
+    function nastyAppendChild() {
+        var node = document.getElementById(null).lastChild;
+        document.getElementById("lightColors").appendChild(node);
     }
 
-    // Change the color back to black when the mouse not over the h3 text.
-    function mouseOut() {
-        document.getElementById("h3Color").style.color = "black";
-    }
-
-    // Event listener for the h3 header for hovering the mouse over it.
-    document.getElementById("h3Color").addEventListener("mouseover", mouseOver);
-    // Event listener for the h3 header for moving the mouse away from the h3 header.
-    document.getElementById("h3Color").addEventListener("mouseout", mouseOut);
 </script>
 </html>

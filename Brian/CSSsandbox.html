@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /* Diamond top shape */
+        #cut-diamond {
+            border-style: solid;
+            border-color: transparent transparent cornflowerblue transparent;
+            border-width: 0 25px 25px 25px;
+            height: 0;
+            width: 50px;
+            position: relative;
+            margin: 20px 0 50px 0;
+            animation-name: diamond; /* Name of the keyframe to bind to the selector */
+            animation-duration: 5s; /* Duration of the animation */
+            animation-iteration-count: 3; /* How many times the animation is played */
+        }
+
+        /* Diamond bottom shape*/
+        #cut-diamond:after {
+            content: "";
+            position: absolute;
+            top: 25px;
+            left: -25px;
+            width: 0;
+            height: 0;
+            border-style: groove;
+            border-color: royalblue transparent transparent transparent;
+            border-width: 70px 50px 0 50px;
+            animation-name: diamond-bottom; /* Name of the keyframe to bind to the selector */
+            animation-duration: 5s; /* Duration of the animation */
+            animation-iteration-count: 3;  /* How many times the animation is played */
+        }
+
+        /* Animation for top of the diamond.*/
+        @keyframes diamond {
+            0%   {border-color: transparent transparent greenyellow transparent; left: 0px; top: 0px;}
+            10%  {border-color: transparent transparent darkgreen transparent; left: 100px; top: 0px;}
+            20%  {border-color: transparent transparent mediumseagreen transparent; left: 50px; top: 100px;}
+            30%  {border-color: transparent transparent springgreen transparent; left: 0px; top: 50px;}
+            40%  {border-color: transparent transparent palevioletred transparent; left: 0px; top: 0px;}
+            50%  {border-color: transparent transparent mediumvioletred transparent; left: 100px; top: 0px;}
+            60%  {border-color: transparent transparent indianred transparent; left: 100px; top: 50px;}
+            70%  {border-color: transparent transparent hotpink transparent; left: 0px; top: 50px;}
+            80%  {border-color: transparent transparent purple transparent; left: 0px; top: 0px;}
+            90%  {border-color: transparent transparent saddlebrown transparent; left: 100px; top: 0px;}
+            95%  {border-color: transparent transparent darkslategray transparent; left: 100px; top: 50px;}
+            100% {border-color: transparent transparent yellow transparent; left: 0px; top: 50px;}
+        }
+
+
+        /* Animation for the bottom of the diamond */
+        @keyframes diamond-bottom {
+            0%   {border-color: greenyellow transparent transparent transparent;}
+            10%  {border-color: darkgreen transparent transparent transparent;}
+            20%  {border-color: mediumseagreen transparent transparent transparent;}
+            30%  {border-color: darkseagreen transparent transparent transparent;}
+            40%  {border-color: greenyellow transparent transparent transparent;}
+            50%  {border-color: darkgreen transparent transparent transparent;}
+            65%  {border-color: mediumseagreen transparent transparent transparent;}
+            70%  {border-color: darkseagreen transparent transparent transparent;}
+            80%  {border-color: sienna transparent transparent transparent;}
+            90%  {border-color: crimson transparent transparent transparent;}
+            95%  {border-color: goldenrod transparent transparent transparent;}
+            100% {border-color: deeppink transparent transparent transparent;}
+        }
+
+        /* Rectangle shape */
+        #rectangle {
+            border-radius: 25px;
+            width: 200px;
+            height: 50px;
+            background: darkred;
+            position: absolute;
+            top: 415px;
+            left: 90px;
+            transition: height 4s;
+        }
+
+
+        /* Rectangle animation */
+        @keyframes rectangle-anim{
+            0% {transform:rotate(0deg);}
+            50% {transform:rotate(180deg);}
+            100% {transform:rotate(360deg);}
+        }
+
+        /* Change the height of the rectangle when hovered */
+        #rectangle:hover {
+            height: 300px;
+        }
+
+        #rectangle2 {
+            border-radius: 25px;
+            width: 200px;
+            height: 50px;
+            background: darkred;
+            position: absolute;
+            top: 415px;
+            left: 90px;
+            transition: height 4s;
+        }
+
+        /* Rectangle2 animation */
+        @keyframes rectangle2-anim{
+            0% {transform:rotate(0deg);}
+            50% {transform:rotate(-180deg);}
+            100% {transform:rotate(-360deg);}
+        }
+
+        /* Circle shape */
+        #circle {
+            width: 100px;
+            height: 100px;
+            background: -webkit-radial-gradient(red, yellow, green); /* For Safari 5.1 to 6.0 */
+            background: -o-radial-gradient(red, yellow, green); /* For Opera 11.6 to 12.0 */
+            background: -moz-radial-gradient(red, yellow, green); /* For Fx 3.6 to 15 */
+            background: radial-gradient(red, yellow, green); /* Standard syntax (must be last) */
+            border-radius: 25px;
+            position: absolute;
+            top: 60px;
+            left: 400px;
+            transition: width -2.9s, height -2.9s ease-in-out;
+            -moz-transition: width -2.9s, height -2.9s ease-in-out;
+            animation-play-state: paused;
+        }
+
+        /* Circle animation */
+        @keyframes circle-anim{
+            0% {transform:rotate(0deg);}
+            50% {transform:rotate(180deg);}
+            100% {transform:rotate(360deg);}
+        }
+
+        /* Change size of the circle when hovered */
+        #circle:hover{
+            border-radius: 230px;
+            width: 300px;
+            height: 300px;
+        }
+
+        /* change rectangle button position */
+        #changeRectangle {
+            position: relative;
+            top: 210px;
+            left: 22px;
+        }
+
+        /* rotate rectangle button position */
+        #rotaterectangle {
+            position: relative;
+            top: 180px;
+            left: -245px;
+        }
+
+        /* rotate rectangle 2 button position */
+        #rotaterectangle2 {
+            position: relative;
+            top: 180px;
+            left: -245px;
+        }
+
+        /* change rectangle button*/
+        #changeRectangleWidthNasty {
+            position: relative;
+            top: 210px;
+            left: 22px;
+        }
+
+        /* change rectangle button*/
+        #rotatecircle  {
+            position: relative;
+            top: -75px;
+            left: -223px;;
+        }
+
+        /* stop circle button position */
+        #stopCircle  {
+            position: relative;
+            top: -75px;
+            left: -210px;;
+        }
+
+    </style>
+</head>
+<body>
+    <div id ="cut-diamond"> </div>
+        <button id="changeRectangle">Change Color Rectangle</button>
+        <button id="changeRectangleWidthNasty">Nasty Change Width Rectangle</button>
+        <button id="rotaterectangle">Rotate Rectangle</button>
+        <button id="rotaterectangle2">Rotate Rectangle2</button>
+        <button id="rotatecircle">Rotate Circle</button>
+        <button id="stopCircle">Stop Circle Rotation</button>
+
+        <div id="rectangle"></div>
+        <div id="rectangle2"></div>
+        <div id="circle"></div>
+    <script src="../../../sandbox/Brian/CSSDOMSandbox.js"></script>
+</body>
+</html>
