@@ -24,14 +24,12 @@
         localStorage.setItem("address", document.querySelector("[name='address']").value);
         document.querySelector("[name='address']").value = "";
 
-
-
       }
       var data = "";
       data += localStorage.getItem("fName") + " ";
       data += localStorage.getItem("lName") + " ";
       data += localStorage.getItem("address") + " ";
-       document.getElementById("result").innerHTML = data;
+      document.getElementById("result").innerHTML = data;
     </script>
   </footer>
 </body>

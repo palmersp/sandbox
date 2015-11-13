@@ -14,23 +14,29 @@
     <script>
 
       document.querySelector("[type='submit']").onclick = function(e){
-
+        mileage = {items:[]};
         var now = new Date();
         var strDate = (now.getMonth()+1) + '-' + now.getDate() + '-' + now.getFullYear();
-        var mileage = {
+        mileage.items.push({
           "miles":document.querySelector("[name='milesTraveled']").value*1.0,
           "gallons":document.querySelector("[name='gallons']").value*1.0,
           "date":strDate
-        }
-        localStorage.setItem("mileage", JSON.stringify(mileage));
+        });
         console.log(mileage);
+        console.log(mileage.items);
+        localStorage.setItem("mileage", JSON.stringify(mileage));
+
 
         document.querySelector("[name='milesTraveled']").value = "";
         document.querySelector("[name='gallons']").value = "";
 
+        var message = "";
+        for(var i = 0; i < mileage.items.length; i++){
+          message += mileage.items[i].date + " " + data.items[i].miles + " " + data.items[i].gallons + " " + data.items[i].miles/data.items[i].gallons + "<br/>";
+        }
+        document.getElementById("result").innerHTML = message;
       }
-       data = JSON.parse(localStorage.getItem("mileage"));
-       document.getElementById("result").innerHTML = data.date + " " + data.miles + " " + data.gallons + " " + data.miles/data.gallons;
+
     </script>
   </footer>
 </body>
