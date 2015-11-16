@@ -39,6 +39,7 @@
       function Animal(name) {
         this.name = name;
       }
+
       Animal.prototype.sayName = function () {
         console.log(this.name);
       };
@@ -76,6 +77,9 @@
   NastyCountry.prototype = {
     sayName: function () {
       console.log(this.name);
+    },
+    changeName: function () {
+      this.name = "Iranistan";
     }
   }
 
@@ -84,6 +88,90 @@
   iran.sayName();
 
   console.log(iran.name.toUpperCase());
+
+  console.log(iran.name);
+  iran.changeName();
+  iran.sayName();
+
+  console.log(NastyCountry.prototype);
+
+  //defining properties on the prototype is a bad idea when they are reference values
+  function Person(name) {
+    this.name = name;
+  }
+
+  Person.prototype.sayName = function() {
+    console.log(this.name);
+  };
+
+  Person.prototype.favorites = [];
+
+  var person1 = new Person("Nicholas");
+  var person2 = new Person("Greg");
+
+  person1.favorites.push("Pizza");
+  person2.favorites.push("Quinoa");
+
+  console.log(person1.favorites); //"Pizza, Quinoa"
+  console.log(person2.favorites); //"Pizza, Quinoa"
+
+  console.log(Person.prototype);
+
+  console.log(Object.prototype);
+
+  //Mess with built in objects
+
+  var coins = ["Penny", "Nickel"];
+  console.log(coins.length);
+
+  Object.prototype.length = function () {
+    console.log("Gotcha!");
+  }
+
+  coins.length;
+
+
+  //create a custom property that shadows the existing prototype property
+
+  var nastyObject = {};
+
+console.log(nastyObject);
+console.log(nastyObject.toString());
+
+
+
+  //uncaught type error
+// nastyObject.toString = "p";
+// console.log(nastyObject.toString());
+
+nastyObject.toString = function () {
+  console.log("HAHAHAH");
+}
+//Overwrites the prototype property
+console.log(nastyObject.toString());
+
+
+//Change the object prototype property
+var nastyObjectsBrother = {};
+
+console.log(nastyObjectsBrother.toString());
+
+console.log(Object.prototype.toString());
+
+Object.prototype.toString = function () {
+  console.log("Sorry!");
+}
+// console.log(Object.prototype.toString());
+var muffin = {
+  cost: 50000
+};
+
+console.log(muffin.toString());
+
+Number.prototype.toString = function () {
+  console.log("It doesn't work");
+}
+console.log(muffin.cost.toString());
 
 
 
