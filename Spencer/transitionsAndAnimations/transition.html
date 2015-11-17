@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Transitions</title>
+
+    <style media="screen">
+      .div{
+        height: 100px;
+        width: 100px;
+        background: black;
+      }
+
+    </style>
+    <script type="text/javascript" src="transition.js"></script>
+  </head>
+  <body>
+    <button type="button" name="button" onclick="changeBox()">Start</button>
+
+    <!-- transition -->
+    <div class="div transitionDiv"></div><br>
+
+    <!-- combined transform and transition -->
+    <div class="div transitionAnimDiv"></div>
+
+    <button type="button" name="button" onclick="nastyChange()">Nasty Paths</button>
+  </body>
+</html>

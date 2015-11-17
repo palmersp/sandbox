@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Transform</title>
+    <style media="screen">
+      #site {
+        height: 500px;
+        width: 100%;
+        position: relative;
+        z-index: 10;
+        background: inherit;
+        left: 0;
+        transition: all 0.2s ease-out;
+        transform: translate3d(0, 0, 0);
+        background: black;
+      }
+      #sideNav {
+        heigth: 500px;
+        background: #4A4D4E;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        height: 100%;
+        left: 0;
+      }
+      .form{
+        background: red;
+        height: 150px;
+        width: 300px;
+        position: absolute;
+        left: -400px;
+        top: 50px;
+        z-index: 100;
+        transform: translate(-400px, 0);
+        transition: all 0.2s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+
+
+    <aside id="sideNav"></aside>
+    <main id="site"></main>
+
+    <aside class="form"></aside>
+
+    <script type="text/javascript">
+      document.onclick = function(e) {
+        document.querySelector('#site').style.transform = "translate3d(250px, 0, 0)";
+        // document.querySelector('.form').style.left = "100px";
+        document.querySelector('.form').style.transform = "translate(500px, 0)";
+
+      }
+    </script>
+  </body>
+</html>

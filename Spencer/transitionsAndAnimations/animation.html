@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Animation</title>
+
+    <style media="screen">
+      .div{
+        height: 100px;
+        width: 100px;
+        background: black;
+      }
+
+      @keyframes moveBox {
+        0% {left: 0px;}
+        25% {left: 40px;}
+        50% {left: 80px;}
+        75% {left: 40px;}
+        100% {left: 0px;}
+      }
+
+      @keyframes nastyAnimation {
+        0% {left: 0px;}
+        25% {left: 40px;}
+        50% {left: 80px;}
+        75% {left: 40px;}
+        100% {left: 0px;}
+      }
+
+
+    </style>
+    <script type="text/javascript" src="animation.js"></script>
+  </head>
+  <body>
+    <button type="button" name="button" onclick="changeBox()">Start</button>
+
+    <!-- animation -->
+    <div class="div animationDiv"></div><br>
+    <button type="button" name="button" onclick="nastyChange">Nasty Paths</button>
+
+
+    <button type="button" name="button" onclick="nastyChange()">Nasty Paths</button>
+
+    <div class="div nastyDiv"></div><br>
+    <div class="div nastyDiv2"></div><br>
+    <div class="div nastyDiv3"></div><br>
+
+
+
+  </body>
+</html>
