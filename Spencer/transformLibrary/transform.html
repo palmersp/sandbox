@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>Transform</title>
     <style media="screen">
@@ -35,23 +36,42 @@
         transform: translate(-400px, 0);
         transition: all 0.2s ease-out;
       }
+
+      .view{
+        z-index: -1000;
+        transition: z-index 0.2s ease-out;
+        background: green;
+        height: 250px;
+        width: 300px;
+        position: absolute;
+      }
     </style>
   </head>
   <body>
 
+    <!-- for absolute elements to appear behind a relative one they must be place above the relative element in the document -->
+    <aside id="sideNav">
+      <ul>
+        <li>Menu Item</li>
+        <li>Menu Item</li>
+        <li>Menu Item</li>
+      </ul>
+    </aside>
 
-    <aside id="sideNav"></aside>
-    <main id="site"></main>
+    <aside class="view"></aside>
 
-    <aside class="form"></aside>
+    <main id="site">
+      <button type="button" name="menu">Menu</button>
+      <button type="button" name="form">Form</button>
+      <button type="button" name="view">View</button>
+    </main>
 
-    <script type="text/javascript">
-      document.onclick = function(e) {
-        document.querySelector('#site').style.transform = "translate3d(250px, 0, 0)";
-        // document.querySelector('.form').style.left = "100px";
-        document.querySelector('.form').style.transform = "translate(500px, 0)";
+    <aside class="form">
+      <button type="button" name="submit">Submit</button>
+    </aside>
 
-      }
-    </script>
+
+
+    <script type="text/javascript" src="customTransform.js"></script>
   </body>
 </html>

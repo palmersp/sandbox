@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Animation</title>
+    <style media="screen">
+      #site {
+        height: 500px;
+        width: 100%;
+        position: relative;
+        z-index: 10;
+        background: inherit;
+        left: 0;
+        transition: all 0.2s ease-out;
+        transform: translate3d(0, 0, 0);
+        background: black;
+      }
+
+      .view{
+        z-index: -1000;
+        background: green;
+        height: 150px;
+        width: 200px;
+        position: absolute;
+      }
+
+      @keyframes move {
+        from { z-index: -10;
+          transform: scale(1);}
+        to { z-index: 200;
+          transform: scale(1.1);}
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- for absolute elements to appear behind a relative one they must be place above the relative element in the document -->
+
+    <aside class="view"></aside>
+
+    <main id="site">
+      <button type="button" name="view">View</button>
+    </main>
+
+
+
+
+    <script type="text/javascript" src="customAnimation.js"></script>
+  </body>
+</html>

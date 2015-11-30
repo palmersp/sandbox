@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Control Structure</title>
+    <style media="screen">
+      div{
+        height: 100px;
+        width: 100px;
+        background: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div1"></div><br>
+    <div class="div2"></div><br>
+    <div class="div3"></div><br>
+  </body>
+  <script type="text/javascript">
+
+  // var clickEvent = [
+  //   ".div1", ".div2", ".div3"
+  // ];
+  //   document.querySelector(clickEvent[]).onclick = clickEvent[]();
+window.onclick = function (e) {
+  var eventType = e.target.className;
+  var events = {
+    "div1": function () {
+      e.target.style.background = "red";
+    },
+    "div2": function () {
+      e.target.style.background = "green";
+    },
+    "default": ""
+  }
+  (events[eventType] || events["default"])();
+// events[eventType]();
+
+  // why does this log as undefined???
+  // console.log(events[eventType]());
+}
+
+// var eventType = window.addEventListener("click", eventTarget);
+//
+// function eventTarget(e){
+//   return e.target.className;
+// }
+//
+// var events = {
+//   "div1": function(){
+//     document.querySelector('.div1').style.background = "red";
+//   }
+// }
+//
+// events[eventType]();
+
+
+  </script>
+</html>
