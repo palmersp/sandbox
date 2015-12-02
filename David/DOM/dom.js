@@ -17,7 +17,7 @@ function happy2(){
 // goes through each tag and displays a list of all items.
 function happy3(){
   var all = document.getElementsByTagName("*");
-  var message = "DIV 3<br/><ul>";
+  var message = "DIV 3<ul>";
   for (var i=0, max=all.length; i < max; i++){
     message += "<li>" + all[i] + "</li>";
   }
@@ -41,7 +41,7 @@ function callNasty(){
 // creates a null element with a null textNode and tries to append it to div4
 function nasty1(){
   var ndiv = document.createElement(null);
-  var nnode = document.createTextNode("null1");
+  var nnode = document.createTextNode("nasty1");
   ndiv.appendChild(nnode);
   document.body.appendChild(ndiv);
 }
@@ -51,14 +51,15 @@ function nasty2(){
   ndiv3.appendChild(nnode3);
 
   var all = document.getElementsByTagName("*");
-  var max = all.length;
+  var max = all.length - 1;
 
   all[max].appendChild(ndiv3);
 }
 function nasty3(){
-  var nullDiv = document.getElementsByTagName(null)
+  var nullDiv = document.getElementsByTagName("null")
+  var max = nullDiv.length - 1;
   var newDiv = document.createElement("div");
-  var newNode = document.createTextNode("textNode");
+  var newNode = document.createTextNode("nasty3");
   newDiv.appendChild(newNode);
-  nullDiv.appendChild(newDiv);
+  nullDiv[max].appendChild(newDiv);
 }

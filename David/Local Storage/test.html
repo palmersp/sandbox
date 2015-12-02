@@ -1,0 +1,24 @@
+<html>
+<head>
+  <script>
+  var xmlhttp = new XMLHttpRequest();
+  var url = "http://api.edmunds.com/api/vehicle/v2/makes?fmt=json&api_key=mwbcgn9juhestmpj9gfqhqmz";
+  var myArr;
+  xmlhttp.onreadystatechange = function()
+  {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+    {
+      myArr = JSON.parse(xmlhttp.responseText);
+      myFunction(myArr);
+    }
+  }
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+  function myFunction(myArr){
+    localStorage.setItem("cars2",myArr)
+  }
+  </script>
+</head>
+<body>
+</body>
+</html>
