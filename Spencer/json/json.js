@@ -27,3 +27,14 @@ var text = '{"employees":[' +
 
 obj = JSON.parse(text);
 console.log(obj.employees[1].firstName + " " + obj.employees[1].lastName);
+
+
+var people = {"employees":[
+  {"firstName":"John", "lastName":"Doe"},
+  {"firstName":"Anna", "lastName":"Smith"},
+  {"firstName":"Peter", "lastName":"Jones"}
+]};
+
+console.log(people);
+console.log(people[0]);
+console.log(people.employees);

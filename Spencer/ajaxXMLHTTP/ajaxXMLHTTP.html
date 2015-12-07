@@ -5,7 +5,17 @@
     <title>Ajax and XMLHTTP</title>
     <script type="text/javascript" src="./ajaxXMLHTTP.js"></script>
   </head>
-  <body>
+  <body onload="getGrades('http://ajax.localhost.com/grades.php', displayGrades)">
+    <div>
+      <button type="button" name="button" onclick="getName('http://ajax.localhost.com/name.php', displayName)">Get Name</button>
+<button type="button" name="button" onclick="getNastyName('http://ajax.localhost.com/name.php', displayName)">Ready State 1</button>
+<button type="button" name="button" onclick="getNastyName2('http://ajax.localhost.com/name.php', displayName)">Ready State 2</button>
+<button type="button" name="button" onclick="getNastyName3('http://ajax.localhost.com/name.php', displayName)">Ready State 3</button>
+<button type="button" name="button" onclick="getNastyName4('http://ajax.localhost.com/name.php', displayName)">Ready State 0</button>
+<button type="button" name="button" onclick="getNastyName5('http://ajax.localhost.com/name.php', displayName)">Null</button>
+<button type="button" name="button" onclick="getNastyName6('http://ajax.localhost.com/name.php', displayName)">False</button>
+<button type="button" name="button" onclick="getBlank('http://ajax.localhost.com/blank.php', displayName)">Blank</button>
 
+</div>
   </body>
 </html>

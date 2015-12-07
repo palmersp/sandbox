@@ -5,6 +5,8 @@ var laptop = {
   hdd: "1 TB",
   brand: "Dell"
 }
+//JSON property names require "" thats why they are added when an object is stringified, if you try
+// and parse something that hasn't been stringified it will throw an error
 
 console.log(laptop);
 
