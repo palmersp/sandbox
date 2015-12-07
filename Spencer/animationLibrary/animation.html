@@ -1,51 +1,110 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <title>Animation</title>
-    <style media="screen">
-      #site {
-        height: 500px;
-        width: 100%;
-        position: relative;
-        z-index: 10;
-        background: inherit;
-        left: 0;
-        transition: all 0.2s ease-out;
-        transform: translate3d(0, 0, 0);
-        background: black;
-      }
 
-      .view{
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Animation</title>
+  <style media="screen">
+    #site {
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      z-index: 10;
+      background: inherit;
+      left: 0;
+      transition: all 0.2s ease-out;
+      transform: translate3d(0, 0, 0);
+      background: black;
+      color: white;
+    }
+
+    .view {
+      z-index: -1000;
+      background: green;
+      height: 50vh;
+      width: 75vw;
+      position: absolute;
+      top: 100px;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+    }
+
+    @keyframes moveViewUp {
+      from {
+        z-index: -10;
+        transform: scale(1);
+      }
+      to {
+        z-index: 200;
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes moveViewDown {
+      from {
+        z-index: 200;
+        transform: scale(1.1);
+      }
+      to {
         z-index: -1000;
-        background: green;
-        height: 150px;
-        width: 200px;
-        position: absolute;
+        transform: scale(1);
       }
+    }
 
-      @keyframes move {
-        from { z-index: -10;
-          transform: scale(1);}
-        to { z-index: 200;
-          transform: scale(1.1);}
+
+    .overlay {
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+      background: gray;
+      opacity: 0.5;
+      z-index: -1001;
+    }
+
+    @keyframes moveOverlayUp {
+      from {
+        z-index: -10;
       }
-    </style>
-  </head>
-  <body>
+      to {
+        z-index: 150;
+      }
+    }
 
-    <!-- for absolute elements to appear behind a relative one they must be place above the relative element in the document -->
+    @keyframes moveOverlayDown {
+      from {
+        z-index: 150;
+      }
+      to {
+        z-index: -1001;
+      }
+    }
 
-    <aside class="view"></aside>
+  </style>
+</head>
 
-    <main id="site">
-      <button type="button" name="view">View</button>
-    </main>
+<body>
+
+  <!-- for absolute elements to appear behind a relative one they must be place above the relative element in the document -->
+
+  <aside class="view"></aside>
+  <div class="overlay"></div>
+
+  <main id="site">
+    <button type="button" name="view">View</button>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+      in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+
+  </main>
 
 
 
 
-    <script type="text/javascript" src="customAnimation.js"></script>
-  </body>
+  <script type="text/javascript" src="customAnimation.js"></script>
+</body>
+
 </html>

@@ -112,7 +112,13 @@ function getNastyGrades(url, func) {
   xmlhttp.open("GET", url, true);
   xmlhttp.send();
 }
-
+function displayNastyGrades(xmlhttp) {
+  var arr = JSON.parse(xmlhttp.responseText);
+  var i;
+  for (i = 0; i < arr.length; i++) {
+    console.log("Class: " + arr.classList[i].class + " Grade: " + arr.classList[i].grade);
+  }
+}
 
 
 //Ready state set to 1, returns nothing
@@ -205,3 +211,9 @@ function getBlank(url, func) {
   xmlhttp.open("GET", url, false);
   xmlhttp.send();
 }
+
+//url is an empty string
+
+//url is not a server
+
+// url is a server but is a weird file
