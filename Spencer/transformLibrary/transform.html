@@ -1,77 +1,91 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <title>Transform</title>
-    <style media="screen">
-      #site {
-        height: 500px;
-        width: 100%;
-        position: relative;
-        z-index: 10;
-        background: inherit;
-        left: 0;
-        transition: all 0.2s ease-out;
-        transform: translate3d(0, 0, 0);
-        background: black;
-      }
-      #sideNav {
-        heigth: 500px;
-        background: #4A4D4E;
-        position: absolute;
-        width: 100%;
-        z-index: 1;
-        height: 100%;
-        left: 0;
-      }
-      .form{
-        background: red;
-        height: 150px;
-        width: 300px;
-        position: absolute;
-        left: -400px;
-        top: 50px;
-        z-index: 100;
-        transform: translate(-400px, 0);
-        transition: all 0.2s ease-out;
-      }
 
-      .view{
-        z-index: -1000;
-        transition: z-index 0.2s ease-out;
-        background: green;
-        height: 250px;
-        width: 300px;
-        position: absolute;
-      }
-    </style>
-  </head>
-  <body>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Transform</title>
+  <style media="screen">
+    #site {
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      z-index: 10;
+      background: inherit;
+      left: 0;
+      transition: all 0.2s ease-out;
+      transform: translate3d(0, 0, 0);
+      background: black;
+    }
 
-    <!-- for absolute elements to appear behind a relative one they must be place above the relative element in the document -->
-    <aside id="sideNav">
-      <ul>
-        <li>Menu Item</li>
-        <li>Menu Item</li>
-        <li>Menu Item</li>
-      </ul>
-    </aside>
+    #sideNav {
+      heigth: 500px;
+      background: #4A4D4E;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+      height: 100%;
+      left: 0;
+    }
 
-    <aside class="view"></aside>
+    .form {
+      /*if I remove the left styling it causes the translate to shoot it clear across the page*/
+      /*background: red;*/
+      /*opacity: 0.1;*/
+      background: rgba(255, 0, 0, 0);
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+      left: -400px;
+      top: 0;
+      z-index: 100;
+      transform: translate(-400px, 0);
+      transition: all 0.2s ease-out;
+    }
 
-    <main id="site">
-      <button type="button" name="menu">Menu</button>
-      <button type="button" name="form">Form</button>
-      <button type="button" name="view">View</button>
-    </main>
+    .view {
+      /*nasty path, for some reason opacity can't be overwritten on the child*/
+      /*use rgba instead to achieve opacity */
+      /*background: blue;*/
+      /*opacity: 1.0;*/
+      background: rgba(0, 0, 255, 1);
+      height: 75vh;
+      width: 75vw;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 12.5vh;
+      left: 0;
+      right: 0;
+    }
+  </style>
+</head>
 
-    <aside class="form">
-      <button type="button" name="submit">Submit</button>
-    </aside>
+<body>
+
+  <!-- for absolute elements to appear behind a relative one they must be place above the relative element in the document -->
+  <aside id="sideNav">
+    <ul>
+      <li>Menu Item</li>
+      <li>Menu Item</li>
+      <li>Menu Item</li>
+    </ul>
+  </aside>
+
+  <main id="site">
+    <button type="button" name="menu">Menu</button>
+    <button type="button" name="form">Form</button>
+    <button type="button" name="view">View</button>
+  </main>
+
+  <aside class="form">
+    <div class="view">
+
+    </div>
+  </aside>
 
 
 
-    <script type="text/javascript" src="customTransform.js"></script>
-  </body>
+  <script type="text/javascript" src="customTransform.js"></script>
+</body>
+
 </html>

@@ -1,11 +1,15 @@
 document.querySelector('[name="view"]').onclick = function(e) {
 
-  document.querySelector('.view').style.animation = "moveViewUp 0.2s ease-out forwards";
-  document.querySelector('.overlay').style.animation = "moveOverlayUp 0.2s ease-out forwards";
+  document.querySelector('.view').style.animation = "scaleUp 0.4s ease-out forwards";
+  document.querySelector('.overlay').style.animation = "moveOverlayUp 0.4s ease-out forwards";
 
 }
 
+// this function is still really abrupt
 document.querySelector('.overlay').onclick = function(e) {
-  document.querySelector('.view').style.animation = "moveViewDown 0.2s ease-in forwards";
-  document.querySelector('.overlay').style.animation = "moveOverlayDown 0.2s ease-in forwards";
+  //prevent bubbling to the child
+  if (this === e.target) {
+    document.querySelector('.view').style.animation = "scaleDown 0.s ease-in forwards";
+    document.querySelector('.overlay').style.animation = "moveOverlayDown 0.2s ease-in forwards";
+  }
 }
