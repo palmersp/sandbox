@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Audio</title>
+</head>
+
+<body>
+  <audio src="./heyAudio.mp3" controls preload="metadata"></audio>
+
+  <!-- no source -->
+  <audio src="" preload="metadata" controls></audio>
+
+  <!-- different source options -->
+  <audio controls preload="metadata">
+    <source src="./heyAudio.mp3" type="audio/mp3">
+    <source src="./heyAudio.ogg" type="audio/ogg">
+  </audio>
+
+  <!-- broken because type is not specified -->
+  <audio controls preload="metadata">
+    <source src="./heyAudio.mp3" type="mimetype">
+    <source src="./heyAudio.ogg" type="mimetype">
+  </audio>
+
+  <!-- no controls cannot be stopped -->
+  <audio src="./heyAudio.mp3" loop autoplay></audio>
+
+  <!-- not the correct format, doesn't work -->
+  <audio src="./heyAudio.aiff" controls preload></audio>
+
+
+  <!-- src is a regular file -->
+
+  <!-- src is an empty string -->
+
+  <!-- do something with record -->
+
+  <!-- get rid of ogg -->
+</body>
+
+</html>

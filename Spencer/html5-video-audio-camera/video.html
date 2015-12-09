@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Video</title>
+</head>
+
+<body>
+  <!-- works perfectly -->
+  <video controls preload="metadata" src="./100_4697.webm"></video>
+
+  <!-- different source options -->
+  <!-- has a poster, although poster doesn't have the correct dimensions -->
+  <video controls preload="metadata" poster="./tree.jpg">
+    <source src="./100_4697.webm" type="video/webm">
+    <source src="./100_4697.mp4" type="video/mp4">
+    <!-- can also give them the option of downloading the video if their browser doesn't support hmtl5 video -->
+  </video>
+
+
+  <!-- plays the video but the format is not correct so it doesn't show video -->
+  <video src="./100_4697.MOV" autoplay></video>
+
+  <!-- has controls -->
+  <video src="./100_4697.MOV" controls preload="metadata"></video>
+
+  <!-- loop will play the video over and over, would be a lot more annoying with preload -->
+  <video src="./100_4697.MOV" controls preload="metadata" loop></video>
+
+  <!-- has a poster but for some reason it shows the poster the whole time -->
+  <!-- probably because the format is bad -->
+  <video src="./100_4697.MOV" poster="./tree.jpg" controls></video>
+
+  <!-- has no controls -->
+  <video preload="metadata" src="./100_4697.webm"></video>
+
+  <!-- no video, just controls -->
+  <video preload="metadata" src="" controls></video>
+
+  <!-- poster, controls but video does not play because their is no source -->
+  <video preload="metadata" src="" controls poster="./tree.jpg"></video>
+
+  <!-- src is a regular file -->
+
+  <!-- src is an empty string -->
+
+  <!-- do something with record -->
+
+  <!-- get rid webm -->
+
+
+
+
+</body>
+
+</html>
