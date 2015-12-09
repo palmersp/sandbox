@@ -28,7 +28,7 @@
       left: 0;
     }
 
-    .form {
+    .overlay {
       /*if I remove the left styling it causes the translate to shoot it clear across the page*/
       /*background: red;*/
       /*opacity: 0.1;*/
@@ -36,8 +36,8 @@
       height: 100vh;
       width: 100vw;
       position: absolute;
-      left: -400px;
       top: 0;
+      left: -400px;
       z-index: 100;
       transform: translate(-400px, 0);
       transition: all 0.2s ease-out;
@@ -73,11 +73,11 @@
 
   <main id="site">
     <button type="button" name="menu">Menu</button>
-    <button type="button" name="form">Form</button>
+    <button type="button" name="overlay">Form</button>
     <button type="button" name="view">View</button>
   </main>
 
-  <aside class="form">
+  <aside class="overlay">
     <div class="view">
 
     </div>

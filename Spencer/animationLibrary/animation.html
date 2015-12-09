@@ -58,6 +58,7 @@
       height: 100vh;
       width: 100vw;
       position: absolute;
+      top: 0;
       background: rgba(128, 128, 128, 0.5);
       z-index: -1001;
     }
@@ -88,6 +89,7 @@
   <!-- for absolute elements to appear behind a relative one they must be place above the relative element in the document -->
 
 <!-- for some reason having this inside the div is messing with the scale -->
+<!-- it scales in correctly the first time but fails after that -->
   <div class="overlay">
     <aside class="view"></aside>
   </div>
