@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+
+    // assign variable to object constructor
+    var CountryName = function (country) {
+        this.country = country
+    }
+
+    // create a nationality for a person
+    var aPerson = new CountryName("German")
+    var anotherPerson = new CountryName("Italian")
+	//nasty path
+	var nullPerson = new CountryName(null)
+
+    // assign function to object property
+    CountryName.prototype.nationality = function() {
+        document.writeln("I'm " + this.country + "<br>")
+    };
+
+    // call the person nationality
+    aPerson.nationality()
+    anotherPerson.nationality()
+	//nasty path
+	console.log(nullPerson.nationality())
+
+    /************************************************************
+     * Nasty paths                                              *
+     ************************************************************/
+    // null country name object
+    var noNationality = new CountryName(null)
+    // null nationality
+    noNationality.nationality()
+
+    // assign variable to object constructor
+    var Name = function (name) {
+        this.name = name
+    }
+
+    // null name
+    var aName = new Name(null)
+    // empty name
+    var anotherName = new Name()
+
+    // assign function to object property
+    Name.prototype.greeting = function() {
+        document.writeln("Hello, I'm " + this.name + "<br>")
+    };
+
+    // null name
+    aName.greeting()
+    // undefined name
+    anotherName.greeting()
+
+    /*********************************************************
+     * Example                                               *
+     *********************************************************/
+    // object
+    shape = {
+        color: "green",
+        sides: 5,
+    }
+
+    // add a method to the shape object
+    shape.changeColor = function(color){
+        this.color = color;
+        document.writeln("New shape color: " + this.color + "<br>")
+    }
+
+    // change color of the object
+    shape.changeColor("red")
+
+    // nasty path
+    shape.changeColor(null)
+
+    /****************************************************************
+     * Example                                                      *
+     ****************************************************************/
+    // anonymous function, its called by calling the variable name.
+    // dd properties to the anonymous function
+
+    // anonymous function
+    var anon = function () {
+        document.writeln("Anon function color property: ")
+    }
+
+    // call to anon function
+    anon();
+    // set a color property to the anonymous function
+    anon.color = "yellow"
+    // nasty path
+    //anon.color = null
+    document.writeln(anon.color);
+    document.writeln("<br>")
+    /****************************************************************
+     * Example                                                      *
+     ****************************************************************/
+    // anonymous function
+    var anon2 = function () {
+        document.writeln("Another anon function color property: ")
+    }
+    // use anonymous function as a constructor
+    var anotherAnon = new anon2();
+    document.writeln(anotherAnon);
+
+    anon2.prototype.red = "red";
+    document.writeln(anotherAnon.red)
+
+    document.writeln("<br>")
+
+    // undefined
+    anon2.prototype.red = null
+    document.writeln(anotherAnon.null)
+</script>
+</body>
+</html>

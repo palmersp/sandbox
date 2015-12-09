@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+
+<script>
+
+    // constructor for a person
+    function Person(firstName, lastName, age, eye) {
+        this.firstName = firstName
+        this.lastName = lastName
+        this.age = age
+        this.eyeColor = eye
+    }
+
+    // create a person object
+    var aPerson = new Person("Dan", "Johnson", 35, "blue")
+
+    document.getElementById('div1').innerHTML = "First Name: "
+            + aPerson.firstName + "<br>" + "Last Name: "
+            + aPerson.lastName + "<br>" + "Age: " + aPerson.age
+            + "<br>" + "Eye Color: " + aPerson.eyeColor
+
+    var anotherPerson = new Person("Brad", "Simpson", 5)
+    anotherPerson.eyeColor = "blue"
+
+    document.getElementById('div2').innerHTML =
+            "Both persons have the same eye color: " +
+            aPerson.eyeColor + ", " + anotherPerson.eyeColor
+
+    // Nasty paths
+
+    // empty an empty object
+    var nullObject = new Object()
+    // empty object set to null
+    nullObject = null
+
+    // display  null object
+    document.getElementById('div3').innerHTML = "Null object: " + nullObject
+
+    // passing null to an empty object
+    var emptyObject = new Object(null)
+    document.getElementById('div4').innerHTML = emptyObject
+
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<style>
+#slider {
+    position: absolute;
+	top: 60px;
+    width: 58vh;
+    height: 145vw;
+    background: blue;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}
+
+#toggle {
+	position: absolute;
+	top: 5px;
+}
+
+.slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+}
+
+.slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+}	
+
+<!-- slide-in animation -->
+@keyframes slide-in {
+    100% { transform: translateX(0%); }
+}
+
+<!-- slide-in animation -->
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(0%); }
+}
+    
+<!-- slide-out animation -->
+@keyframes slide-out {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+<!-- slide-out animation -->
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(-100%); }
+}
+
+body {
+	background-color: black;
+}
+	</style>
+</head>
+<body>
+<div id="slider" class="slide-in"></div>
+
+<main id="screen">
+<button id="toggle">Toggle</button>
+
+<p>Hello</p>
+</main>
+</body>
+<footer>
+	<script>
+	var slider = document.getElementById('slider');
+	var toggle = document.getElementById('toggle');
+
+	toggle.addEventListener('click', function() {
+		var isOpen = slider.classList.contains('slide-in');
+		// sets the slide-in or slide-out attribute for the slider 
+		// depending on the position of the slider
+		slider.setAttribute('class', isOpen ? 'slide-out' : 'slide-in');
+	});
+	</script>
+</footer>
+</html>

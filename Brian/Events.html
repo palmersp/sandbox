@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<style>
+		#password {
+			font-size: 25px;
+			width:	30%;
+		}
+		
+		.box {
+			width: 250px;
+			height: 250px;
+			background: #03A9F4;
+		}
+		
+		#password2 {
+			font-size: 25px;
+			width:	30%;
+			position:	absolute;
+			top:	10%;
+		}
+		
+		#nastyPassword {
+			font-size: 25px;
+			width:	30%;
+			position:	absolute;
+			top:	103%;
+		}
+		
+		.box2 {
+			width: 250px;
+			height: 250px;
+			background: #03A9F4;
+			position:	absolute;
+			top: 64%;
+		}
+		
+		.nastyBox {
+			width: 250px;
+			height: 250px;
+			position: absolute;
+			top: 110%;
+			background: gray;
+		}
+	</style>
+</head>
+<body>
+	<input id="password" type="password"><br><br>
+	
+	<input id="password2" type="password"><br><br>
+	
+	<input id="nastyPassword" type="input"><br><br><br>
+	
+	<div class="box"></div><br><br>
+	
+	<div class="box2"></div><br><br>
+	
+	<div class="nastyBox"></div><br><br>
+</body>
+<footer>
+	<script>
+	// Logs when password is entered in the input field and the enter key is pressed or 
+	// mouse is clicked outside the input field
+	// password is visible after the click or enter key pressed
+	document.querySelector("#password").onchange = function(e){
+		e.target.type = "input";
+        console.log(e);
+	}
+
+
+	document.querySelector("#password2").oninput = function(e) {
+		console.log("You wrote: " + e.target.value);
+	}
+	
+	// changes background color when mouse is clicked inside the box
+	// logs the event
+	document.querySelector(".box").onclick = function (e) {
+		console.log();
+        e.target.style.background = "#F46903";
+		//e.target.style.background = null;     nothing happens
+        console.log(e);
+		//console.log(null);    logs null
+    }
+	
+	// logs events when window is scrolled more than 50 percent
+	window.onscroll = function(e){
+		if(document.body.scrollTop > 50){
+			console.log(e);
+		}
+		// logs event once
+		//if(document.body.scrollTop > "500") {
+		//	console.log(e)
+		//}
+	}
+	
+	// changes background color when mouse is hovering inside the box
+	// logs the event
+	document.querySelector(".box2").onmouseover = function(e) {
+		console.log();
+		e.target.style.background = "rgb(138, 244, 3)";
+		console.log(e);
+	}
+	
+	// changes background color when mouse is not hovering inside the box
+	// logs the event
+	document.querySelector(".box2").onmouseout = function(e) {
+		console.log();
+		e.target.style.background = "rgba(244, 3, 3, 0.63)";
+		console.log(e);
+	}
+	
+	// background color doesn't changes
+	//logs onmouseout event
+	document.querySelector(".nastyBox").onmouseout = function(e) {
+		console.log();
+		e.target.style.background = null;
+		console.log(e);
+	}
+	
+	// nasty path
+	// oninput value typed is undefined
+	// logs event
+	document.querySelector("#password2").oninput = function(e) {
+		console.log("You wrote: " + e.value); 
+	}
+	
+	// nasty path
+	// logs event when text is entered and the enter key is pressed
+	// or mouse is clicked outside the input field
+	// password is visible when typing
+	document.querySelector('#nastyPassword').onchange = function(e) {
+		e.target.type = null; // logs event, no errors
+		console.log(e);
+	}
+	
+	
+	</script>
+</footer>
+</html>

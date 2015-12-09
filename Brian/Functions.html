@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        // decides if it's freezing cold or not too cold.
+        function isCold() {
+            var message
+            var temp = 19
+            // check if it's not too cold or freezing cold.
+            if (temp < 32) {
+                message = "It's freezing cold!"
+            } else {
+                message = "It's not too cold!"
+            }
+           return message
+        }
+        // display the result of the isCold function
+        document.writeln(isCold())
+
+        document.writeln("<br>")
+
+        // takes the average of 2 numbers
+        function average(number1, number2) {
+            return (number1 + number2) / 2
+			// nasty path
+			console.log(return ((number1 + number2) / null))
+        }
+
+        // display result of the average of 2 numbers
+        document.writeln("Average of 2 and 6 is: " + average(2, 6))
+		// nasty path
+		console.log("Average of 2 and 6 is: " + average(null, 6))
+
+        document.writeln("<br>")
+
+        // Nasty path
+        // average of 2 nulls
+        document.writeln("Average of 2 nulls is: " + average(null, null))
+
+        document.writeln("<br>")
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    // array of integers
+    var numbers = [6,2,8,3,0,4,9,5]
+    var elem = ""
+	var nullArray = [null]
+
+    // Loop through the array
+    for (i = 0; i < numbers.length; i++) {
+        elem += numbers[i] + " "
+    }
+	
+    // display array
+    document.writeln(elem)
+    document.writeln("<br>")
+	
+	// nasty path
+	// Loop through the null array
+    for (i = 0; i < nullArray.length; i++) {
+        elem += nullArray[i] + " "
+    }
+    // display null array
+	// displays null
+    document.writeln(elem)
+    document.writeln("<br>")
+
+    // Replace first element of the array
+    numbers[0] = 7
+    document.writeln("First element replaced: " + numbers)
+	
+	// nasty path
+	// replace null element in the array
+	numbers[null] = 7
+    document.writeln("Null element replaced: " + numbers)
+	console.log(numbers[1] = null) // second element replaced with null (empty)
+    console.log("Second element replaced with null: " + numbers)
+
+    document.writeln("<br>")
+
+    //delete the last element
+    numbers.pop()
+    document.writeln("Last element removed: " + numbers)
+	
+	console.log(null.pop()) // pop non existing array, gives an error
+
+    document.writeln("<br>")
+
+    //add elements to the end of the array
+    numbers.push("ten", "twenty")
+    document.writeln("Added 2 new elements at the end of the array: " + numbers)
+	//nasty path
+	console.log(numbers.push("", "")) // nothing happens
+	console.log(numbers.push(null, null)) //nothing happens
+    document.writeln("<br>")
+
+    // Remove the first element
+    numbers.shift();
+    document.writeln("Removed the first element: " + numbers)
+
+    document.writeln("<br>")
+
+    numbers.unshift(0, 11)
+    document.writeln("Added 2 new elements to the beginning: " + numbers)
+	// nasty path
+	console.log(numbers.unshift(null, null)) // nothing happens
+	console.log(numbers.unshift(0, null))  // nothing happens
+    document.writeln("<br>")
+
+    numbers.splice(1, 4, "five", "nine");
+	// nasty path
+	console.log(numbers.splice(1, 4, null, null));  
+	console.log(numbers.splice(null, null, "five", "nine")); // nothing happens
+    document.writeln("Added 2 new elements replacing the second and fifth element: " + numbers)
+
+    document.writeln("<br>")
+
+    // associative array
+    var person = [];
+    person["firstName"] = "Bob";
+    person["lastName"] = "Smith";
+    person["age"] = 46;
+	person["eyeColor"] = null;
+	person[null] = "brown"
+
+    // Display the first name of the person
+    document.writeln(person["firstName"])
+    document.writeln("<br>")
+
+    // display the length of the last name
+    document.writeln(person["lastName"]+": " + person["lastName"].length)
+
+    document.writeln("<br>")
+
+    // loop through associative array
+    var value = ""
+    for (var key in person) {
+        value += key + " " + person[key] + "<br>";
+
+    }
+    document.writeln(value)
+
+	// get the key of associative array with null value
+	// and the null key with a valid value
+	console.log(person["eyeColor"]+": " + person[null]);
+	
+
+
+
+</script>
+</body>
+</html>

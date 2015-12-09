@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+First Name: <input type="text" id="fname">
+Last Name: <input type="text" id="lname">
+Email: <input type="text" id="email">
+<input id="submit" type="submit" value="submit">
+<div id="storage"></div>
+<br>
+<div id="arrays">
+    <input id="storearray" type="submit" value="Store Array">
+</div>
+
+</body>
+
+<script>
+    document.getElementById("submit").onclick = function(e){
+
+        localStorage.setItem("fname", document.getElementById("fname").value)
+        localStorage.getItem("fname")
+
+        localStorage.setItem("lname", document.getElementById("lname").value)
+        localStorage.getItem("lname")
+
+        localStorage.setItem("email", document.getElementById("email").value)
+        localStorage.getItem("email")
+
+        document.getElementById("storage").innerHTML = localStorage.fname + "<br>"
+                + localStorage.lname + "<br>" + localStorage.email
+    }
+
+    document.getElementById("storearray").onclick = function storeAssociativeArray() {
+        var person = []
+        person["firstName"] = "Bob"
+        person["lastName"] = "Smith"
+        person["age"] = 46
+		person["eyeColor"] = null
+		person[null] = "brown"
+		
+        function Person() {
+            return "hi"
+        }
+
+        var aPerson = new Person("Dan", "Johnson", 35, "blue")
+
+
+
+        localStorage.setItem("fname", person["firstName"])
+        localStorage.setItem("lname", person["lastName"])
+        localStorage.setItem("age", person["age"])
+        localStorage.setItem("object",JSON.stringify(aPerson))
+
+        document.getElementById("arrays").innerHTML = localStorage.fname
+                + "<br>" + localStorage.lname + "<br>" + localStorage.age
+                + "<br>"
+
+        // nasty paths
+        console.log(JSON.parse(localStorage.getItem("object")))
+		
+		localStorage.setItem("eyeColor", person["eyeColor"])// call local storage and key is null
+		localStorage.setItem("hairColor", person[null]) // key is not null and value is null
+		document.getElementById("arrays").innerHTML = localStorage.eyeColor + "<br>" + localStorage.hairColor
+
+    }
+</script>
+</html>
