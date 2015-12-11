@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+  #counter{
+    text-align:center;
+
+  }
+  .countdown{
+    text-align:center;
+    animation: myMove 1s 5;
+  }
+  @keyframes myMove {
+    0% {font-size: 5em; opacity:1}
+    100% {font-size: 10em; opacity: 0}
+  }
+  </style>
+
+</head>
+<body>
+  <div id="counter">
+    <button onclick=countdown()>start</button>
+  </div>
+  <script>
+  function countdown() {
+    var seconds = 6;
+    function tick() {
+        //This script expects an element with an ID = "counter". You can change that to what ever you want.
+        var counter = document.getElementById("counter");
+        seconds--;
+        counter.innerHTML = seconds;
+        if( seconds > 0 ) {
+            setTimeout(tick, 1000);
+        }
+        else {
+          counter.innerHTML = ""
+        }
+    }
+    tick();
+  }
+
+  document.querySelector('#counter').onclick = function (e) {
+    document.querySelector('#counter').className = "countdown"//"animation: myMove 5s 1;"
+  }
+  document.querySelector('#counter').ontouchstart = function (e) {
+    document.querySelector('#counter').className = "countdown"
+  }
+  </script>
+</body>
+</html>

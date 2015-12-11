@@ -1,0 +1,13 @@
+div{
+  width: 30%;
+  display:flex;
+  margin:auto;
+}
+img{
+  width: 30%;
+  height: auto;
+  display:block;
+  margin:auto;
+
+  position:absolute;
+}

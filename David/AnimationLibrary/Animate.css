@@ -1,0 +1,11 @@
+#counter{
+  text-align:center;
+}
+.countdown{
+  text-align:center;
+  animation: myMove 1s 5;
+}
+@keyframes myMove {
+  0% {font-size: 5em; opacity:1}
+  100% {font-size: 10em; opacity: 0}
+}

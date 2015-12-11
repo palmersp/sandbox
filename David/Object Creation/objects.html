@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>
+  var starWarsBattlefront = {name:"Star Wars: Battlefront", system:"PC, PS4, XBONE", ESRB:"T"}
+  console.log(JSON.stringify(starWarsBattlefront))
+  console.log(starWarsBattlefront)
+
+  function gameMeta(name, system, ESRB){
+    this.name = name
+    this.system = system
+    this.ESRB = ESRB
+  }
+
+  var StarCraft2part3 = new gameMeta("StarCraft II: Legacy of the Void","PC, Mac","T")
+  console.log(StarCraft2part3)
+
+  var Batman4 = new gameMeta("Batman: Arkham Knight","PC, PS4, XBONE")
+  console.log(Batman4)
+
+  var CSGO = new gameMeta("Counter Strike: Global Offensive", "PC", "M", "Steam")
+  console.log(CSGO)
+
+  function gameMeta(name,system,ESRB,client){
+    this.name = name
+    this.system = system
+    this.ESRB = ESRB
+    this.client = client
+  }
+
+
+  var MEIII = new gameMeta("Mass Effect III", "PC, PS3, 360", "M", "Origin")
+  console.log(MEIII)
+
+  var MEII = new gameMeta("Mass Effect II", "PC, PS3, 360","M",null)
+  console.log(MEII)
+
+  var Battlefront = gameMeta.call(Battlefront, starWarsBattlefront.name, starWarsBattlefront.system, starWarsBattlefront.ESRB, "Origin")
+  console.log(Battlefront)
+
+  var update = function(name, age, size){
+    this.name = name;
+    this.age = age;
+    this.size = size;
+};
+update.call(person1, 'Slarty', 200, '1xM');
+console.log(person1)
+  //inheritance using function.call
+  function Animal(legcount) {
+      this.legcount = legcount;
+      this.sayName = function() {
+        console.log(this.name);
+      }
+    }
+
+    //inherits from Animal
+    function Dog(legcount, name) {
+      Animal.call(this, legcount);
+      this.name = name;
+      this.bark = function() {
+        console.log("Bark!");
+      }
+    }
+
+    // create a new object it Iherits from the Dog constructor, which inherits from the Animal constructor
+    var retriever = new Dog(4, "Shinzi");
+    console.log(retriever.name + " " + retriever.legcount);
+
+    //this method is inherited from the Animal constructor
+    retriever.sayName();
+    retriever.bark();
+
+
+    // circular inheritance
+
+  </script>
+</head>
+<body>
+</body>
+</html>

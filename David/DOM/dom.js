@@ -24,13 +24,19 @@ function happy3(){
   message += "</ul>";
   var div3 = document.getElementById("div3").innerHTML = message;
 }
+// remove items
+function happy4(){
+  var item = document.getElementById("div2")
+  item.remove();
+}
 function callHappy(){
   happy1();
   happy2();
   happy3();
+  happy4();
 }
 function callNasty(){
-  var fun = [nasty1(), nasty2(), nasty3()];
+  var fun = [nasty1(), nasty2(), nasty3(), nasty4(), nasty6()];
   var len = fun.length;
   var i = 0;
   while (i < len){
@@ -46,14 +52,14 @@ function nasty1(){
   document.body.appendChild(ndiv);
 }
 function nasty2(){
-  var ndiv3 = document.createElement(null);
-  var nnode3 = document.createTextNode(null);
-  ndiv3.appendChild(nnode3);
+  var ndiv2 = document.createElement(null);
+  var nnode2 = document.createTextNode(null);
+  ndiv2.appendChild(nnode2);
 
   var all = document.getElementsByTagName("*");
   var max = all.length - 1;
 
-  all[max].appendChild(ndiv3);
+  all[max].appendChild(ndiv2);
 }
 function nasty3(){
   var nullDiv = document.getElementsByTagName("null")
@@ -62,4 +68,24 @@ function nasty3(){
   var newNode = document.createTextNode("nasty3");
   newDiv.appendChild(newNode);
   nullDiv[max].appendChild(newDiv);
+}
+//remove something not there
+function nasty4(){
+  var item = document.getElementById("div5");
+}
+//remove null
+function nasty5(){
+  var item = document.getElementById("null")
+  item.remove();
+}
+//append to 2 different elements
+function nasty6(){
+  var append1 = document.getElementById("div1");
+  var append2 = document.getElementById("div3");
+  var ndiv4 = document.createElement("div6");
+  var nNode = document.createTextNode("Nasty 6 appended 2x");
+  ndiv4.appendChild(nNode);
+
+  append1.appendChild(ndiv4);
+  append2.appendChild(ndiv4);
 }
