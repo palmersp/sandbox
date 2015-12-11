@@ -15,6 +15,8 @@
 <br><br>
 <button id="convert">Submit</button>
 <button id="break">Break</button>
+<br>
+<button id="parseArrays">Parse Arrays</button>
 
 <script type="text/javascript">
 
@@ -23,12 +25,8 @@
         document.getElementById("fname").focus();
     }
 
-    // Add event listener to the Submit button that when clicked, the parseData function
-    // gets executed.
-    document.getElementById("convert").addEventListener("click", parseData);
-
     // Stringifies and also parses all text input field values.
-    function parseData() {
+    document.getElementById("convert").onclick = function parseData() {
         // Gets the string of the first name text input field.
         var firstName = document.getElementById("fname").value;
         // Stringifies the string from the first name input field.
@@ -68,12 +66,8 @@
 
     // Nasty paths
 
-    // Add event listener to the Break button that when clicked, the breakData function
-    // gets executed.
-    document.getElementById("break").addEventListener("click", breakData);
-
     // Break the code.
-    function breakData(){
+    document.getElementById("break").onclick = function breakData(){
         // Empty string for the first name
         var emptyFirstName = "";
         // Null value for the first name
@@ -81,7 +75,7 @@
 
         // Stringifies an empty string.
         var fnameJSONEmpty = JSON.stringify(emptyFirstName);
-        // Does not parse an empty string.
+        // Does not parse an empty string, doesn't display anything
         var fnameStringEmpty = JSON.parse(fnameJSONEmpty);
 
         // Does not stringify a null value. It displays null.
@@ -94,6 +88,34 @@
 
         // Prints the result of trying to parse an empty JSON string.
         document.write("<br>" + "<br>" + fnameJSONNull + "<br>" + fnameStringNull);
+    }
+
+     document.getElementById('parseArrays').onclick = function associativeArray(){
+        var person = []
+        person["name"] = "John"
+        person ["age"] = 40
+
+
+         document.writeln("Stringified Person object name: "
+                 + JSON.parse(JSON.stringify(JSON.stringify(person["name"]))))
+
+         document.writeln("<br>")
+
+         document.writeln("Stringified Person object age: "
+                 + JSON.stringify(person["age"]))
+
+         //document.writeln("Parse Person object name: " + JSON.parse(person["name"]))
+         document.writeln("<br>")
+
+         document.writeln("Parsed and stringified Person object age: "
+                 + JSON.parse(JSON.stringify(person["age"])))
+
+        var colors = ["blue", "green"]
+
+        //document.writeln("<br>" + "Parsed array: " + JSON.parse(colors))
+
+         //.writeln("Stringified array: " + JSON.stringify(colors))
+
     }
 
 </script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<style>
+		#video {
+			height: 294px;
+			width: 397px;
+			position: absolute;
+			top: 0px;
+		}
+
+	</style>
+</head>
+<body>
+<!-- Video -->
+<video controls id="video" width="400" height="280">
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+</body>
+<footer>
+<script>
+// video opacity changes when window loads
+window.onload = function loadOpacity() {
+	document.getElementById("video").style.opacity = 0.5;
+	document.getElementById("video").style.transition = "opacity 2s linear";
+}
+
+// video opacity changes to normal when mouse is hovered over it
+document.getElementById("video").onmouseover = function removeOpacity() {
+	document.getElementById("video").style.opacity = 1;
+	document.getElementById("video").style.transition = "opacity 2s linear";
+}
+
+// video opacity changes to window load default when mouse is hovering out of the video
+document.getElementById("video").onmouseout = function loadOpacity() {
+	document.getElementById("video").style.opacity = 0.5;
+	document.getElementById("video").style.transition = "opacity 2s linear";
+}
+
+
+</script>
+</footer>
+</html>

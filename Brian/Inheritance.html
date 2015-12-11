@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        // Parent function
+        function Item(price) {
+            this.price = price
+        }
+
+        // Parent function
+        function ItemType(type) {
+            this.type = type
+        }
+        // Child function that inherits type and price from 2 parent functions
+        function Toy(type, name, price) {
+            this.name = name
+            ItemType.call(this, type)
+            Item.call(this, price)
+			// nasty paths
+			console.log(Item.call(this, null)) // get undefined
+			console.log(Item.call(this, ""))  // undefined
+        }
+
+        var chess = new Toy("Board game", "Glass Chess Set", 30);
+        document.writeln("Type: " + chess.type + "<br>" + "Name: "
+                + chess.name + "<br>" + "Price: $" + chess.price)
+		// nasty path
+		console.log(chess.null)   //get undefined
+        document.writeln("<br>" + "<br>")
+
+
+        function airplane(aircraftType, engineType, make) {
+            this.aircraftType = aircraftType
+            this.engineType = engineType
+            this.make = make
+        }
+        // add new method to existing prototype
+        airplane.prototype.description = function() {
+            return "Type: " + this.aircraftType + "<br>"
+                    + "Engine Type: " + this.engineType
+                    + "<br>" + "Make: " + this.make
+        };
+
+        // create object
+        var airplane = new airplane("commercial", "twin jet", "Boeing")
+        document.writeln(airplane.description())
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

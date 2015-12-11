@@ -1,3 +1,5 @@
+//make it settle back down just a bit
+
 document.querySelector('[name="view"]').onclick = function(e) {
 
   document.querySelector('.view').style.animation = "scaleUp 0.4s ease-out forwards";

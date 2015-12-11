@@ -63,3 +63,17 @@ function rotateRectangle2(){
     document.querySelector("#rectangle2").style.animation = "rectangle2-anim 6s linear infinite";
 }
 
+/**************************************************************************************************
+*
+**************************************************************************************************/
+window.onload = function assignInvalidStringParagraphClass() {
+	document.getElementsByName('.nasty').innerHTML = goodbye;
+	var invalidString = 
+}
+
+window.onload = function assignNulltoParagraph() {
+	document.getElementsByName('.null').innerHTML = null;
+}
+
+// css class and asisgning a invalid string
+// assign it to null

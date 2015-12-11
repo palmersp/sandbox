@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<style>
+#slider {
+    position: absolute;
+	top: 60px;
+    width: 58vh;
+    height: 145vw;
+    background: blue;
+	transition: all 0.2s ease-out;
+	z-index: 10;
+}
+
+#toggle {
+	position: absolute;
+	top: 5px;
+}
+
+ <!-- moves to the right of the screen 10 pixels -->
+.slide-in {
+	 transform: translate3d(10px, 0, 0);
+}
+
+<!-- moves to the left of the screen completely -->
+.slide-out {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}	
+    
+body {
+	background-color: black;
+}
+
+	</style>
+</head>
+<body>
+<div id="slider" class="slide-in"></div>
+
+<main id="screen">
+<button id="toggle">Toggle</button>
+
+<p>Hello</p>
+</main>
+</body>
+<footer>
+	<script>
+	var slider = document.getElementById('slider');
+	var toggle = document.getElementById('toggle');
+
+	toggle.addEventListener('click', function() {
+		var isOpen = slider.classList.contains('slide-in');
+
+		// sets the slide-in or slide-out attribute for the slider 
+		// depending on the position of the slider
+		slider.setAttribute('class', isOpen ? 'slide-out' : 'slide-in');
+	});
+	</script>
+</footer>
+</html>

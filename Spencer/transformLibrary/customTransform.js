@@ -1,6 +1,6 @@
-document.querySelector('[name="menu"]').onclick = function(e) {
-  document.querySelector('#site').style.transform = "translate3d(250px, 0, 0)";
-}
+// document.querySelector('[name="menu"]').onclick = function(e) {
+//   document.querySelector('#site').style.transform = "translate3d(250px, 0, 0)";
+// }
 
 document.querySelector('[name="overlay"]').onclick = function(e) {
   // document.querySelector('.form').style.left = "100px";

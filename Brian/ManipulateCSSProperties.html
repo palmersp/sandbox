@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<style>
+	.food {
+		visibility: hidden;
+	}
+	.paragraph1 {
+		position: relative;
+		top: 200px;
+		left: 500px;
+		font-family: "Times New Roman", Georgia, Serif;
+		font-style: italic;
+		font-size: 2.5em;
+	}
+	
+	.buttonChangeParagraph {
+		position: relative;
+		top: 10px;
+		left: 0px; 
+	}
+	
+	.buttonChangeMenu {
+		position: relative;
+		top: -325px;
+		left: 70px;
+	}
+
+	
+	.div1 {
+		height: 50px;
+		width: 50px;
+		background-color: yellow;
+		position: relative;
+		top: 50px;
+	}
+	
+	.buttonChangeDiv {
+		position: relative;
+		top: -100px;
+		left: 0px;
+	}
+	
+	.nasty-food {
+		position: relative;
+		top: -75px;
+		left: 255px;
+	}
+	
+	.nastyButtonChangeProperties {
+		position: relative;
+		top: -412px;
+		left: 100px;
+	}
+	</style>
+</head>
+	<body>
+	<button type="button" name="button" onclick="showMenu()">Menu</button>
+	<ul id="menu" class="food">
+		<li>Bread</li>
+		<li>Milk</li>
+		<li>Eggs</li>
+	</ul>
+	
+	<ul id="nasty-menu" class="nasty-food">
+		<li>Cheese</li>
+		<li>Juice</li>
+		<li>Yogurt</li>
+	</ul>
+	<button type="button" name="button2" class="buttonChangeParagraph" 
+	onclick="changeParagraph()">Change Paragraph Properties</button>
+	<p id="paragraph1" class="paragraph1">Change me!</p>
+	
+	<button type="button" name="button3" class="buttonChangeMenu" 
+	onclick="changeMenu()">Change Menu Properties</button>
+	
+	<div class="div1" id="d1"><p>Div 1</p></div>
+	<button type="button" name="button3" class="buttonChangeDiv" 
+	onclick="changeDiv()">Change Div Properties</button>
+	
+	<button type="button" name="button4" class="nastyButtonChangeProperties" 
+	onclick="nastyPropertyChanges()">Nasty Change Properties</button>
+<footer>
+	<script>
+	function showMenu() {
+		//food ul becomes visible
+		document.querySelector('#menu').style.visibility = "visible";
+	}
+	
+	function changeParagraph() {
+		var paragraph = document.querySelector('#paragraph1');
+		paragraph1.style.left = "0px"; // change left position
+		paragraph1.style.top = "0px"; // change top position
+		paragraph1.style.color = "red"; // change font color
+		paragraph1.style.fontWeight = "bold"; // change font to bold
+		paragraph1.style.fontSize = "30px"; // change font size
+		paragraph1.style.fontVariant = "small-caps"; // change font to small caps
+		paragraph1.style.fontFamily = "Courier New"; // change font family
+	}
+	
+	function changeMenu() {
+		var list = document.querySelector('#menu');
+		list.style.color = "orange"; // change font color
+		list.style.listStyleType = "none";
+	}
+
+	function changeDiv() {
+		var div1Change = document.querySelector('#d1');
+		div1Change.style.background = "green";   // change background color
+		div1Change.style.height = "100px";  // change height
+		div1Change.style.width = "100px";  // change width
+	}
+	
+	// nasty paths
+	function nastyPropertyChanges() {
+		var list2 = document.querySelector('#nasty-menu');
+		list2.style.visibility = null; // no errors, nothing happens
+		list2.style.color = null; // no errors, nothing happens
+		// list disappears
+		list2.style.position = "relative"; // nothing happens
+		list2.style.top = "-160" //nothing happens
+		
+		var divChange = document.querySelector('#d1');
+		divChange.style.background = null; //nothing changes
+		divChange.style.position = "absolute"; //moves up to 0 pixels
+		divChange.style.left = "50"; //nothing happens
+		
+		var nastyParagraph = document.querySelector('#paragraph1');
+		nastyParagraph.style.color = null; //changes to default font color black
+	}
+
+	</script>
+</footer>
+</html>
