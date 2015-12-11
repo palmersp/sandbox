@@ -6,6 +6,10 @@
   <meta charset="utf-8">
   <title>Animation</title>
   <style media="screen">
+    body {
+      margin: 0;
+    }
+
     #site {
       height: 100vh;
       width: 100vw;
@@ -33,14 +37,17 @@
     }
 
     @keyframes scaleUp {
-      from {
+      /*from {*/
         /*z-index: -10;*/
-        transform: scale(1);
-      }
-      to {
+        /*transform: scale(1);*/
+      /*}*/
+      /*to {*/
         /*z-index: 200;*/
-        transform: scale(1.1);
-      }
+        /*transform: scale(1.1);*/
+      /*}*/
+    0%{transform: scale(1)}
+    95%{transform: scale(1.11)}
+    100%{transform: scale(1.1)}
     }
 
     @keyframes scaleDown {
@@ -65,7 +72,7 @@
 
     @keyframes moveOverlayUp {
       from {
-/*if this number is too high it takes to long to show up, you miss the scale*/
+        /*if this number is too high it takes to long to show up, you miss the scale*/
         z-index: -10;
       }
       to {
@@ -88,11 +95,11 @@
 
   <!-- for absolute elements to appear behind a relative one they must be place above the relative element in the document -->
 
-<!-- for some reason having this inside the div is messing with the scale -->
-<!-- it scales in correctly the first time but fails after that -->
-  <div class="overlay">
+  <!-- for some reason having this inside the div is messing with the scale -->
+  <!-- it scales in correctly the first time but fails after that -->
+  <article class="overlay">
     <aside class="view"></aside>
-  </div>
+  </article>
 
   <main id="site">
     <button type="button" name="view">View</button>
