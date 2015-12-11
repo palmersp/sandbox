@@ -87,7 +87,7 @@
         var textnode = document.createTextNode("Tigger");
         newItem.appendChild(textnode);
         var list = document.getElementById("animals");
-        list.insertBefore(newItem, list.childNodes[0]);
+        list.insertBefore(newItem, list.children[0]);
     }
 
     /* Event listener for the Remove button. When clicked, it executes the
@@ -98,7 +98,7 @@
     ** it will keep removing items in the list until it's empty. */
     function removeChild() {
         var list = document.getElementById("animals");
-        list.removeChild(list.childNodes[0]);
+        list.removeChild(list.children[0]);
     }
 
     /* Event listener for the Append button. When clicked, the appendChild function
@@ -124,7 +124,7 @@
         var textnode = document.createTextNode("Tigger");
         newItem.appendChild(textnode);
         var list = document.getElementById("animals");
-        list.insertBefore(newItem, list.childNodes[4]);
+        list.insertBefore(newItem, list.children[4]);
     }
 //
 //    document.getElementById("nastyInsertbefore2").addEventListener("click", badInsertBefore2);
@@ -134,7 +134,7 @@
 //        var textnode = document.createTextNode("Tigger");
 //        newItem.removeChild(textnode);
 //        var list = document.getElementById("animals");
-//        list.removeChild(newItem, list.childNodes[4]);
+//        list.removeChild(newItem, list.children[4]);
 //    }
 
     document.getElementById("nastyRemove").addEventListener("click", nastyRemoveChild);
@@ -142,7 +142,9 @@
     // Inserts a new animal twice at the end of the animals list.
     function nastyRemoveChild() {
         var list = document.getElementById("animals");
-        list.removeChild(list.childNodes[1]);
+        list.removeChild(list.children[1]);
+		console.log(list.removeChild(null)); // call remov child and pass null
+		console.log(list.removeChild(document.getElementById("lightColors").Children[1])); //call remove child and pass a child that is not a child
     }
 
     document.getElementById("nastyAppend").addEventListener("click", nastyAppendChild);
@@ -150,8 +152,15 @@
     // Inserts a new animal twice at the end of the animals list.
     function nastyAppendChild() {
         var node = document.getElementById(null).lastChild;
+		var node2 = document.getElementById(null).firstChild;
         document.getElementById("lightColors").appendChild(node);
+		console.log(document.getElementById("lightColors").appendChild(null)); // call append and pass it null
+		console.log(ocument.getElementById("lightColors").appendChild(node2)); // call append child and call append child again for other thing
     }
 
+    
+    
+    
+    // call create element and if it's empty or null or says bob (invalid tag)
 </script>
 </html>

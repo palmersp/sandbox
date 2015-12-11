@@ -35,7 +35,7 @@
         }
 
         /* Animation for top of the diamond.*/
-        @keyframes diamond {
+       /* @keyframes diamond {
             0%   {border-color: transparent transparent greenyellow transparent; left: 0px; top: 0px;}
             10%  {border-color: transparent transparent darkgreen transparent; left: 100px; top: 0px;}
             20%  {border-color: transparent transparent mediumseagreen transparent; left: 50px; top: 100px;}
@@ -48,11 +48,11 @@
             90%  {border-color: transparent transparent saddlebrown transparent; left: 100px; top: 0px;}
             95%  {border-color: transparent transparent darkslategray transparent; left: 100px; top: 50px;}
             100% {border-color: transparent transparent yellow transparent; left: 0px; top: 50px;}
-        }
+        }*/
 
 
         /* Animation for the bottom of the diamond */
-        @keyframes diamond-bottom {
+       /* @keyframes diamond-bottom {
             0%   {border-color: greenyellow transparent transparent transparent;}
             10%  {border-color: darkgreen transparent transparent transparent;}
             20%  {border-color: mediumseagreen transparent transparent transparent;}
@@ -65,7 +65,7 @@
             90%  {border-color: crimson transparent transparent transparent;}
             95%  {border-color: goldenrod transparent transparent transparent;}
             100% {border-color: deeppink transparent transparent transparent;}
-        }
+        }*/
 
         /* Rectangle shape */
         #rectangle {
@@ -183,6 +183,12 @@
             left: -210px;;
         }
 
+		p {
+			position: relative;
+			top: 85px;
+			left: 0px;
+		}
+		
     </style>
 </head>
 <body>
@@ -197,6 +203,9 @@
         <div id="rectangle"></div>
         <div id="rectangle2"></div>
         <div id="circle"></div>
-    <script src="../../../sandbox/Brian/CSSDOMSandbox.js"></script>
+		
+		<p class="nasty" >Hello!</p>
+		<p class="null" >Howdy!</p>
+    <script src="CSSDOMSandbox.js"></script>
 </body>
 </html>
