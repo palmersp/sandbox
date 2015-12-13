@@ -14,6 +14,8 @@ document.querySelector('.overlay').onclick = function(e) {
 
   // e.stopPropagation();
   //prevent the event from bubbling to the child element
+console.log(this);
+console.log(e.target);
   if (this === e.target) {
     //if you use ease-out to bring something in, have to use ease-in to bring it out
     document.querySelector('.overlay').style.transitionTimingFunction = "ease-in";
